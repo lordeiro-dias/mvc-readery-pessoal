@@ -1,0 +1,179 @@
+@model ReaderyMVC.Models.Livro
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/styles/global.css">
+    <link rel="stylesheet" href="~/styles/livro.css">
+    <script defer src="scripts/script.js"></script>
+    <title>Readery</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="alinhamento-cabecalho">
+            <img src="~/assets/img/icone.svg" alt="" class="logo">
+            <p class="titulo-icone">Readery</p>
+        </div>
+        <a href="" class="link-perfil">Perfil</a>
+    </header>
+
+    <main>
+        <section class="secao-listagem">
+            <div class="alinhamento-busca">
+                <button class="adiciona-livro" id="adiciona-livro">Adicionar Livro</button>
+                <div class="lupa-barra">
+                    <img src="~/assets/icons/lupa.svg" alt="" class="icone-pesquisa">
+                    <input type="search" id="filtro-busca" placeholder="Buscar livro...">
+                </div>
+            </div>
+
+            <div>
+                <div class="genero-texto">
+                    <p>Gênero:</p>
+                </div>
+
+                <div class="alinhamento-genero">
+                    <div class="alinhamento-botoes">
+                        <button>Todos</button>
+                        <button>Lendo</button>
+                        <button>Lidos</button>
+                        <button>Não Lidos</button>
+                    </div>
+
+                    <div class="filtros">
+
+                        <select id="filtro-genero">
+                            <option value="todos">Todos</option>
+                            <option value="poesia">Poesia</option>
+                            <option value="horror">Horror</option>
+                            <option value="romance">Românce</option>
+                            <option value="religiao">Religião</option>
+                            <option value="fantasia">Fantasia</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="suspense">Suspense</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-modal-cards">
+              <dialog class="modal-card">
+                <div class="fecha-modal-card">
+                    <button class="botao-cancela-modal2">X</button>
+                </div>
+
+                <div class="modal-card-parte1">
+                    <img src="~/assets/img/divinacomedia.png" alt="a divina comedia" class="img-modal-card">
+                    <div class="separacao-textos-modal">
+                        <div>
+                            <h1 class="titulo-livro-modal">A Divina Comédia</h1>
+                            <p class="texto-modal">A Divina Comédia é um poema épico de Dante Alighieri que narra a
+                                jornada do
+                                próprio autor através do Inferno, Purgatório e Paraíso, representando uma viagem
+                                espiritual e um
+                                compêndio do conhecimento medieval. Guiado primeiro pelo poeta Virgílio e depois por
+                                Beatriz,
+                                ua musa inspiradora, Dante explora o mundo após a morte, refletindo sobre fé, razão e o
+                                destino
+                                humano. </p>
+                        </div>
+                        <h2 class="genero-modal">Gênero: Poesia</h2>
+                    </div>
+                </div>
+
+                <hr class="linha-modal">
+                <hr class="linha-modal2">
+
+                <div class="modal-card-parte2">
+                    <div>
+                        <div class="alinhar-botao-comentario">
+                            <h1 class="titulo-comentario">Cometário do Leitor:</h1>
+                            <button class="botao-edita-comentario"><img src="~/assets/icons/Vector.svg" alt=""></button>
+                        </div>
+                        <div class="alinhamento-botao-modal" id="comentario-1">
+                            <div id="texto-comentario-1">
+                                <p class="comentario-leitor">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s.
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has
+                                    been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply
+                                    dummy
+                                    text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                    standard
+                                    dummy text ever since the 1500s</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="avaliacao-modal-alinhamento">
+                        <div>
+                            <h2 class="avaliação-modal">Avaliação:</h2>
+                            <div>
+                                <button class="estrela" id="1">☆</button>
+                                <button class="estrela2" id="2">☆</button>
+                                <button class="estrela3" id="3">☆</button>
+                                <button class="estrela4" id="4">☆</button>
+                                <button class="estrela5" id="5">☆</button>
+                            </div>
+                            <p>0/5</p>
+                        </div>
+
+                        <div>
+                            <h2 class="estado-leitura-modal">Estado de Leitura:</h2>
+                            <select id="" class="select-modal">
+                                <option value="quero-ler">Quero Ler</option>
+                                <option value="quero-ler">Lendo</option>
+                                <option value="quero-ler">Lido</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </dialog>
+        </section>
+
+        <section class="secao-livros">
+            <div class="espaco-card">
+                <div class="card-dentro">
+                    <div class="lixeira">
+                        <button class="remover">X</button>
+                    </div>
+                    <img src="~/assets/img/divinacomedia.png" alt="" class="img-card">
+                    <div class="textos">
+                        <p class="text-card">Lorem Ipsum is simply dummy text of the printing and ty Lorem Ipsum Dolor
+                            is simply.Lorem Ipsum is simply dummy text of the printing and ty Lorem Ipsum Dolor is
+                            simply.Lorem Ipsum is simply dummy text of the printing and ty Lorem Ipsum Dolor is simply.
+                        </p>
+                    </div>
+                    <button class="botao-card" id="botao-card">↓</button>
+                </div>
+                <div class="card-fora">
+                    <p class="titulo-livro">A Divina Comédia</p>
+                    <div class="notas">
+                        <p class="nota">0/5</p>
+                        <button class="estrela" id="1">☆</button>
+                        <button class="estrela2" id="2">☆</button>
+                        <button class="estrela3" id="3">☆</button>
+                        <button class="estrela4" id="4">☆</button>
+                        <button class="estrela5" id="5">☆</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <img src="~/assets/img/divinacomedia.png" alt="" class="img-card2">
+    </main>
+
+</body>
+
+</html>
