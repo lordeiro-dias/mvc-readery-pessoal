@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/styles/global.css">
     <link rel="stylesheet" href="~/styles/livro.css">
-    <script defer src="scripts/script.js"></script>
-    <title>Readery</title>
+    <script defer src="~/scripts/script.js"></script>
+    <title>Readery - Lista de Livros</title>
 </head>
 
 <body>
@@ -25,6 +25,26 @@
     </header>
 
     <main>
+        <dialog class="teste-modal" id="teste-modal">
+            <form method="post" enctype="multipart/form-data" asp-action="Criar" asp-controller="Livro">
+                <div class="teste-campo">
+                    <label for="titulo">Título</label>
+                    <input id="titulo" name="Titulo" type="text" value="@Model.Titulo">
+
+                    <label for="sinopse">Sinopse</label>
+                    <input id="sinopse" name="Sinopse" type="text" value="@Model.Sinopse">
+
+                    <label for="numpaginas">Numero de Páginas</label>
+                    <input id="numpaginas" name="NumPaginas" type="number" value="@Model.NumPaginas">
+                </div>
+
+                <button type="submit">
+                    salvar
+                </button>
+            </form>
+        </dialog>
+
+
         <section class="secao-listagem">
             <div class="alinhamento-busca">
                 <button class="adiciona-livro" id="adiciona-livro">Adicionar Livro</button>

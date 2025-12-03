@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ReaderyMVC.Models;
 
 public partial class Livro
-{
+{   
     public int IdLivro { get; set; }
 
     public string Titulo { get; set; } = null!;
