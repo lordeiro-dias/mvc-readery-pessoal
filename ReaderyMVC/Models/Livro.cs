@@ -11,8 +11,6 @@ public partial class Livro
 
     public string? Sinopse { get; set; }
 
-    public string? ISBN { get; set; }
-
     public int? NumPaginas { get; set; }
 
     public string? CapaURL { get; set; }

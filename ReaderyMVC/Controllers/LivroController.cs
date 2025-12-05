@@ -1,5 +1,6 @@
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using ReaderyMVC.Data;
 using ReaderyMVC.Models;
 
@@ -16,6 +17,7 @@ namespace ReaderyMVC.Controllers
 
         public IActionResult Index()
         {
+
             return View(new Livro());
         }
 
@@ -39,7 +41,6 @@ namespace ReaderyMVC.Controllers
             {
                 Titulo = titulo,
                 Sinopse = sinopse,
-                ISBN = "123123123",
                 NumPaginas = numpaginas,
                 CapaURL = capaurl,
                 UsuarioId = 1,

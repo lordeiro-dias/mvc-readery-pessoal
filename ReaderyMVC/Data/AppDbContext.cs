@@ -151,12 +151,8 @@ public partial class AppDbContext : DbContext
 
             entity.ToTable("Livro");
 
-            entity.HasIndex(e => e.ISBN, "UQ__Livro__447D36EACD4D9564").IsUnique();
-
             entity.Property(e => e.CapaURL).HasMaxLength(500);
-            entity.Property(e => e.ISBN)
-                .HasMaxLength(15)
-                .IsUnicode(false);
+
             entity.Property(e => e.Titulo).HasMaxLength(150);
 
             entity.HasOne(d => d.Editora).WithMany(p => p.Livros)

@@ -1,4 +1,4 @@
-@model ReaderyMVC.Models.Livro
+@model ReaderyMVC.Models.LivroViewModel
 @{
     Layout = null;
 }
@@ -11,7 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/styles/global.css">
     <link rel="stylesheet" href="~/styles/livro.css">
+    <link rel="stylesheet" href="~/styles/stylepesquisa.css">
     <script defer src="~/scripts/script.js"></script>
+    <script defer src="~/scripts/scriptpesquisa.js"></script>
     <title>Readery - Lista de Livros</title>
 </head>
 
@@ -25,29 +27,58 @@
     </header>
 
     <main>
-        <dialog class="teste-modal" id="teste-modal">
-            <form method="post" enctype="multipart/form-data" asp-action="Criar" asp-controller="Livro">
-                <div class="teste-campo">
-                    <label for="titulo">Título</label>
-                    <input id="titulo" name="Titulo" type="text" value="@Model.Titulo">
+        @* <dialog class="teste-modal" id="teste-modal">
+        <form method="post" enctype="multipart/form-data" asp-action="Criar" asp-controller="Livro">
+        <div class="teste-campo">
+        <label for="titulo">Título</label>
+        <input id="titulo" name="Titulo" type="text" value="@Model.Titulo">
 
-                    <label for="sinopse">Sinopse</label>
-                    <input id="sinopse" name="Sinopse" type="text" value="@Model.Sinopse">
+        <label for="sinopse">Sinopse</label>
+        <input id="sinopse" name="Sinopse" type="text" value="@Model.Sinopse">
 
-                    <label for="numpaginas">Numero de Páginas</label>
-                    <input id="numpaginas" name="NumPaginas" type="number" value="@Model.NumPaginas">
+        <label for="numpaginas">Numero de Páginas</label>
+        <input id="numpaginas" name="NumPaginas" type="number" value="@Model.NumPaginas">
+        </div>
+
+        <button type="submit">
+        salvar
+        </button>
+        </form>
+        </dialog> *@
+
+        <div class="overlay" id="overlay" onclick="closeModal()"></div>
+        <dialog class="modal" id="modal">
+            <img src="imagens/folha1.png" alt="" class="folha1">
+            <img src="imagens/folha2.png" alt="" class="folha2">
+            <img src="imagens/folha3.png" alt="" class="folha3">
+            <img src="imagens/folha4.png" alt="" class="folha4">
+            <section class="topo">
+                <div class="titulo-topo">
+                    <p>Procure um livro!</p>
                 </div>
+            </section>
+            <section class="nome">
+                <label for="nome-livro" class="nome-texto">Nome do livro:</label><br>
+                <input type="text" id="nome-livro" class="nome-caixa" placeholder="Qual o título do seu livro?" />
+            </section>
+            <section class="adicao_manual">
+                <label for="adicao-livro" class="adicao-texto">Não achou seu livro?</label><br>
+                <button class="adicao-caixa">Adicione-o manualmente!</button>
+            </section>
+            <section class="livros">
+            </section>
+            <button onclick="closeModal()" class="botao-fechar">X</button>
 
-                <button type="submit">
-                    salvar
-                </button>
-            </form>
+            @foreach(var livro in Model.LivroViewModel)
+            {
+                <li>@livro.Titulo</li>
+            }
         </dialog>
 
 
         <section class="secao-listagem">
             <div class="alinhamento-busca">
-                <button class="adiciona-livro" id="adiciona-livro">Adicionar Livro</button>
+                <button class="adiciona-livro" onclick="showModal()">Adicionar Livro</button>
                 <div class="lupa-barra">
                     <img src="~/assets/icons/lupa.svg" alt="" class="icone-pesquisa">
                     <input type="search" id="filtro-busca" placeholder="Buscar livro...">
@@ -85,7 +116,7 @@
         </section>
 
         <section class="secao-modal-cards">
-              <dialog class="modal-card">
+            <dialog class="modal-card">
                 <div class="fecha-modal-card">
                     <button class="botao-cancela-modal2">X</button>
                 </div>
