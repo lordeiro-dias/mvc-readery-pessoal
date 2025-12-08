@@ -1,0 +1,6 @@
+@model ReaderyMVC.LivroViewModel
+
+@foreach (var livro in Model.Livros)
+{
+    <li class="livrinho-modal">@livro.Titulo</li>
+}

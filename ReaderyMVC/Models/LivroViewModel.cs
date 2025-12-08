@@ -11,6 +11,8 @@ namespace ReaderyMVC
         public int EditoraId { get; set; }
         public int? UsuarioId { get; set; }
 
+        public string? Busca { get; set; }
+
         public List<Livro> Livros { get; set; } = new();
     }
 }

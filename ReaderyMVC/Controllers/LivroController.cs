@@ -15,23 +15,37 @@ namespace ReaderyMVC.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? busca = null)
         {
 
-            return View(new Livro());
+            var todosOsLivrinhos = _context.Livros.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(busca))
+            {
+                string termoBuscaLower = busca.ToLower();
+                todosOsLivrinhos = todosOsLivrinhos.Where(livro => livro.Titulo.ToLower().Contains(termoBuscaLower));
+            }
+
+            LivroViewModel viewModel = new LivroViewModel
+            {
+                Livros = todosOsLivrinhos.OrderBy(l => l.Titulo).ToList(),
+                Busca = busca
+            };
+
+            return View(viewModel);
         }
 
         [HttpPost]
         public IActionResult Criar(string titulo, string sinopse, int numpaginas, string capaurl)
         {
 
-            if(string.IsNullOrWhiteSpace(titulo) || string.IsNullOrWhiteSpace(sinopse))
+            if (string.IsNullOrWhiteSpace(titulo) || string.IsNullOrWhiteSpace(sinopse))
             {
                 ViewBag.Erro = "Preencha todos os campos";
                 return View("Index");
             }
 
-            if(numpaginas <= 0)
+            if (numpaginas <= 0)
             {
                 ViewBag.Erro = "Número de páginas inválido";
                 return View("Index");

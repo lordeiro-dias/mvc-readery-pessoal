@@ -578,5 +578,6 @@ C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\r1kf
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\ReaderyMVC.sourcelink.json
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\0vnl447cp9-akzjzgnts5.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\yf4cpm48m4-lwy0z4bpha.gz
-C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\iviv2lf2y5-22ghy5iiqm.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\oq9cdho2ej-5ipweew5fc.gz
+C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\iviv2lf2y5-76yxwx70pk.gz
+C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\e0cy0393yc-kbi8a3576u.gz
