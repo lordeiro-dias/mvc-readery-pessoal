@@ -36,7 +36,6 @@ namespace ReaderyMVC.Controllers
 
             LivroEstanteViewModel viewModel = new LivroEstanteViewModel
             {
-                
                 Livros = todosOsLivrinhos.OrderBy(l => l.Titulo).ToList(),
                 Estantes = estanteCompleta.ToList(),
                 BuscaCard = buscacard,
@@ -101,9 +100,11 @@ namespace ReaderyMVC.Controllers
         [HttpPost]
         public IActionResult CriarCard(int livroid)
         {
+            var idlivro = _context.Livros.FirstOrDefault(u => u.IdLivro == livroid);
+
             Estante estante = new Estante
             {
-                LivroId = livroid,
+                LivroId = idlivro.IdLivro,
                 PaginaAtual = null,
                 StatusId = 1,
                 UsuarioId = 1

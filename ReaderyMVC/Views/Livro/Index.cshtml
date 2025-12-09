@@ -74,9 +74,9 @@
             <section class="livros" id="lista-livros-modal">
                     @foreach (var livro in Model.Livros)
                     {
-                        <form>
-                            <li class="livrinho-modal" name="idlivro" value="@livro.">
-                                <button>@livro.Titulo</button> 
+                        <form asp-action="CriarCard" asp-controller="Livro" method="post">
+                            <li class="livrinho-modal">
+                                <button type="submit" name="livroid" value="@livro.IdLivro">@livro.Titulo</button> 
                             </li>
                         </form>
                     }

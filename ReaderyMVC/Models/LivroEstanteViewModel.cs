@@ -4,6 +4,7 @@ namespace ReaderyMVC
 {
     public class LivroEstanteViewModel
     {
+
         public string Titulo { get; set; } = null!;
 
         public string? Sinopse { get; set; } 
