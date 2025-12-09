@@ -1,4 +1,4 @@
-@model LivroViewModel
+@model LivroEstanteViewModel
 @{
     Layout = null;
 }
@@ -52,10 +52,10 @@
         @*! MODAL LISTA DE LIVROS DO BANCO *@
         <div class="overlay" id="overlay" onclick="closeModal()"></div>
         <dialog class="modal" id="modal">
-            <img src="imagens/folha1.png" alt="" class="folha1">
-            <img src="imagens/folha2.png" alt="" class="folha2">
-            <img src="imagens/folha3.png" alt="" class="folha3">
-            <img src="imagens/folha4.png" alt="" class="folha4">
+            <img src="~/assets/img/folha1.png" alt="" class="folha1">
+            <img src="~/assets/img/folha2.png" alt="" class="folha2">
+            <img src="~/assets/img/folha3.png" alt="" class="folha3">
+            <img src="~/assets/img/folha4.png" alt="" class="folha4">
             <section class="topo">
                 <div class="titulo-topo">
                     <p>Procure um livro!</p>
@@ -72,10 +72,14 @@
                 <button class="adicao-caixa" onclick="showModalAdicao()">Adicione-o manualmente!</button>
             </section>
             <section class="livros" id="lista-livros-modal">
-                @foreach (var livro in Model.Livros)
-                {
-                    <li class="livrinho-modal">@livro.Titulo</li>
-                }
+                    @foreach (var livro in Model.Livros)
+                    {
+                        <form>
+                            <li class="livrinho-modal" name="idlivro" value="@livro.">
+                                <button>@livro.Titulo</button> 
+                            </li>
+                        </form>
+                    }
             </section>
             <button onclick="closeModal()" class="botao-fechar">X</button>
         </dialog>
@@ -84,10 +88,10 @@
         @*! MODAL ADIÇÃO DE LIVROS NO BANCO *@
         <div class="overlay2" id="overlay2" onclick="closeModalAdicao()"></div>
         <dialog class="modal2" id="modal2">
-            <img src="imagens/folha1.png" alt="" class="folha12">
-            <img src="imagens/folha2.png" alt="" class="folha22">
-            <img src="imagens/folha3.png" alt="" class="folha32">
-            <img src="imagens/folha4.png" alt="" class="folha42">
+            <img src="~/assets/img/folha1.png" alt="" class="folha12">
+            <img src="~/assets/img/folha2.png" alt="" class="folha22">
+            <img src="~/assets/img/folha3.png" alt="" class="folha32">
+            <img src="~/assets/img/folha4.png" alt="" class="folha42">
             <section class="topo2">
                 <div class="titulo-topo2">
                     <p>Adicione um livro!</p>
@@ -99,7 +103,7 @@
                 <section class="meio2">
                     <section class="meio-esquerda2">
                         <div class="foto2">
-                            <img src="imagens/sem-foto.png" id="previa2" class="sem-foto2">
+                            <img src="~/assets/img/sem-foto.png" id="previa2" class="sem-foto2">
                             <label for="capaurl" class="botao-foto2">Adicionar nova foto</label>
                             <input type="file" id="capaurl" name="capaurl" accept="image/jpeg, image/png, image/jpg"
                                 class="input-escondido2">
@@ -154,10 +158,10 @@
                     <span class="vl2"></div>
                 </section>
 
-                <button onclick="closeModalAdicao()" class="botao-fechar2">X</button>
                 <button class="botao-salvar2" type="submit">Salvar livro</button>
 
             </form>
+            <button onclick="closeModalAdicao()" class="botao-fechar2">X</button>
         </dialog>
 
 
