@@ -13,6 +13,6 @@ namespace ReaderyMVC
 
         public string? Busca { get; set; }
 
-        public List<Livro> Livros { get; set; } = new();
+        public List<Livro> Livros { get; set; } = new List<Livro>();
     }
 }

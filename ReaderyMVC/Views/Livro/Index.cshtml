@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="~/styles/global.css">
     <link rel="stylesheet" href="~/styles/livro.css">
     <link rel="stylesheet" href="~/styles/stylepesquisa.css">
+    <link rel="stylesheet" href="~/styles/styleadicao.css">
     <script defer src="~/scripts/script.js"></script>
     <script defer src="~/scripts/scriptpesquisa.js"></script>
     <script defer src="~/scripts/textoTempoReal.js"></script>
+    <script defer src="~/scripts/scriptadicao.js"></script>
     <title>Readery - Lista de Livros</title>
 </head>
 
@@ -47,6 +49,7 @@
         </form>
         </dialog> *@
 
+        @*! MODAL LISTA DE LIVROS DO BANCO *@
         <div class="overlay" id="overlay" onclick="closeModal()"></div>
         <dialog class="modal" id="modal">
             <img src="imagens/folha1.png" alt="" class="folha1">
@@ -59,14 +62,14 @@
                 </div>
             </section>
             <form asp-action="Index" asp-controller="Livro" method="get" class="nome"
-            oninput="realizarBuscaNoModal(event); return false;">
+                oninput="realizarBuscaNoModal(event); return false;">
                 <label for="nome-livro" class="nome-texto">Nome do livro:</label><br>
                 <input type="search" id="nome-livro" class="nome-caixa" name="busca"
-                    placeholder="Qual o título do seu livro?"/>
+                    placeholder="Qual o título do seu livro?" />
             </form>
             <section class="adicao_manual">
                 <label for="adicao-livro" class="adicao-texto">Não achou seu livro?</label><br>
-                <button class="adicao-caixa">Adicione-o manualmente!</button>
+                <button class="adicao-caixa" onclick="showModalAdicao()">Adicione-o manualmente!</button>
             </section>
             <section class="livros" id="lista-livros-modal">
                 @foreach (var livro in Model.Livros)
@@ -76,6 +79,87 @@
             </section>
             <button onclick="closeModal()" class="botao-fechar">X</button>
         </dialog>
+
+
+        @*! MODAL ADIÇÃO DE LIVROS NO BANCO *@
+        <div class="overlay2" id="overlay2" onclick="closeModalAdicao()"></div>
+        <dialog class="modal2" id="modal2">
+            <img src="imagens/folha1.png" alt="" class="folha12">
+            <img src="imagens/folha2.png" alt="" class="folha22">
+            <img src="imagens/folha3.png" alt="" class="folha32">
+            <img src="imagens/folha4.png" alt="" class="folha42">
+            <section class="topo2">
+                <div class="titulo-topo2">
+                    <p>Adicione um livro!</p>
+                </div>
+            </section>
+
+            <form asp-action="Criar" asp-controller="Livro" id="form-adicao-livro" method="post" enctype="multipart/form-data">
+
+                <section class="meio2">
+                    <section class="meio-esquerda2">
+                        <div class="foto2">
+                            <img src="imagens/sem-foto.png" id="previa2" class="sem-foto2">
+                            <label for="capaurl" class="botao-foto2">Adicionar nova foto</label>
+                            <input type="file" id="capaurl" name="capaurl" accept="image/jpeg, image/png, image/jpg"
+                                class="input-escondido2">
+                        </div>
+                    </section>
+                    <section class="meio-direita2">
+                        <div class="nome2">
+                            <label for="titulo" class="nome-texto2">Nome do livro:</label><br>
+                            <input type="text" id="titulo" name="titulo" class="nome-caixa2"
+                                placeholder="Qual o título do seu livro?" />
+                        </div>
+                        <div class="nome2">
+                            <label for="autor" class="autor-texto2">Autor:</label><br>
+                            <input type="text" id="autor" name="autor" class="autor-caixa2"
+                                placeholder="Qual o nome do autor?" />
+                        </div>
+                        <div class="genero2">
+                            <label for="genero" class="genero-livro2">Gênero:</label><br>
+                            <select id="genero" name="genero">
+                                <option value="Autoajuda">Autoajuda</option>
+                                <option value="Biografia">Biografia</option>
+                                <option value="Clássico">Clássico</option>
+                                <option value="Desenvolvimento Pessoal">Desenvolvimento Pessoal</option>
+                                <option value="Distopia">Distopia</option>
+                                <option value="Fantasia">Fantasia</option>
+                                <option value="Ficção Científica">Ficção Científica</option>
+                                <option value="Histórico">Histórico</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Literatura Brasileira">Literatura Brasileira</option>
+                                <option value="Literatura Juvenil">Literatura Juvenil</option>
+                                <option value="Mistério">Mistério</option>
+                                <option value="Não Ficção">Não Ficção</option>
+                                <option value="Policial">Policial</option>
+                                <option value="Realismo Mágico">Realismo Mágico</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Suspense">Suspense</option>
+                                <option value="Terror">Terror</option>
+                                <option value="Thriller">Thriller</option>
+                            </select>
+                        </div>
+                        <div class="sinopse2">
+                            <label for="sinopse" class="sinopse-livro2">Sinopse:</label><br>
+                            <textarea id="sinopse" name="sinopse" class="sinopse-caixa2"
+                                placeholder="Do que o seu livro se trata?"></textarea>
+                        </div>
+                        <div class="paginas2">
+                            <label for="numpaginas" class="paginas-livro2">N.º de páginas:</label><br>
+                            <input type="number" id="numpaginas" name="numpaginas" class="paginas-caixa2"
+                                placeholder="Quantas páginas tem seu livro?" />
+                        </div>
+                    </section>
+                    <span class="vl2"></div>
+                </section>
+
+                <button onclick="closeModalAdicao()" class="botao-fechar2">X</button>
+                <button class="botao-salvar2" type="submit">Salvar livro</button>
+
+            </form>
+        </dialog>
+
 
 
         <section class="secao-listagem">

@@ -1,5 +1,6 @@
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using ReaderyMVC.Data;
 using ReaderyMVC.Models;
@@ -36,10 +37,13 @@ namespace ReaderyMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar(string titulo, string sinopse, int numpaginas, string capaurl)
+        public IActionResult Criar(string titulo, string autor, string genero, string sinopse, int numpaginas, string capaurl)
         {
 
-            if (string.IsNullOrWhiteSpace(titulo) || string.IsNullOrWhiteSpace(sinopse))
+            var autores = _context.Autors.FirstOrDefault(a => a.NomeAutor.ToLower() == autor.ToLower());
+
+            if (string.IsNullOrWhiteSpace(titulo) || string.IsNullOrWhiteSpace(sinopse) ||
+                string.IsNullOrWhiteSpace(autor) || string.IsNullOrWhiteSpace(genero))
             {
                 ViewBag.Erro = "Preencha todos os campos";
                 return View("Index");
@@ -51,6 +55,19 @@ namespace ReaderyMVC.Controllers
                 return View("Index");
             }
 
+
+
+            if(autores == null)
+            {
+                autores = new Autor
+                {
+                    NomeAutor = autor
+                };
+
+                _context.Autors.Add(autores);
+                _context.SaveChanges();
+            }
+
             Livro livro = new Livro
             {
                 Titulo = titulo,
@@ -60,6 +77,8 @@ namespace ReaderyMVC.Controllers
                 UsuarioId = 1,
                 EditoraId = 1
             };
+
+            livro.Autors.Add(autores);
 
             _context.Livros.Add(livro);
             _context.SaveChanges();
