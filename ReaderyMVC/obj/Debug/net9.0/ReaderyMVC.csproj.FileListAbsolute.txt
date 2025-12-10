@@ -851,3 +851,4 @@ C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\refi
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\ReaderyMVC.pdb
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\ReaderyMVC.genruntimeconfig.cache
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\ref\ReaderyMVC.dll
+C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\v9g63lyvxt-9y01p4o0i8.gz

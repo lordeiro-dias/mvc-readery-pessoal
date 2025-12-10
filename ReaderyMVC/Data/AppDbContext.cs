@@ -211,6 +211,8 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.FotoURL).HasMaxLength(500);
             entity.Property(e => e.Nome).HasMaxLength(100);
             entity.Property(e => e.SenhaHash).HasMaxLength(32);
+            entity.Property(e => e.Genero).HasMaxLength(20);
+            entity.Property(e => e.Descricao).HasMaxLength(1000);
         });
 
         OnModelCreatingPartial(modelBuilder);

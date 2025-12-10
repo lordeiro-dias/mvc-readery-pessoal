@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --marrom-claro: #E3D6C8;
+    --marrom: #B8A28B;
+    --marrom-escuro: #8E7253;
+    --branco: #FFFFFF;
+    --preto: #000000;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+    color: var(--preto);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url(~/../../assets/fundo-folhas.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container-login {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.borda {
+    border: 7px solid var(--preto);
+    position: relative;
+    padding: 80px 70px;
+    border-color: var(--marrom-escuro);
+    background-color: var(--marrom-claro);
+}
+
+.logo-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: auto;
+    position: absolute;
+    left: 35%;
+    bottom: 90%;
+}
+
+.forms {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    gap: 20px;
+}
+
+.forms input {
+    width: 345px;
+    height: 55px;
+    background-color: var(--marrom);
+    border: none;
+    margin-top: 5%;
+    padding: 10%;
+}
+
+.forms input::placeholder {
+    color: var(--branco);
+    font-size: 100%;
+    display: flex;
+    align-items: self-start;
+}
+
+.forms label {
+    display: flex;
+    justify-content: start;
+}
+
+.link-esqueci {
+    color: var(--preto);
+    text-decoration: none;
+    margin-left: 55%;
+}
+
+.link-esqueci:hover {
+    color: var(--marrom-escuro);
+    text-decoration: underline;
+}
+
+.lembre-se {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 16%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    gap: 3%;
+    accent-color: var(--marrom-escuro);
+}
+
+.botoes {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin: 1%;
+    width: 100%;
+    height: 30%;
+}
+
+.botao-entrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--marrom);
+    border: none;
+    padding: 7%;
+    color: var(--branco);
+    font-size: 1.4rem;
+    margin-bottom: 4%;
+    width: 70%;
+}
+
+.botao-cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--marrom-escuro);
+    padding: 7%;
+    color: var(--branco);
+    border: none;
+    font-size: 1.4rem;
+    text-decoration: none;
+    width: 70%;
+}
+
+.botao-entrar:hover,
+.botao-cadastro:hover {
+    background-color: var(--marrom-claro);
+    color: var(--marrom-escuro);
+    border: 2px solid var(--marrom-escuro);
+}
+
+.erro-login {
+    color: #d42000;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}
+
+.erro-login.mostrar {
+    display: block;
+}
+
+/*RESPONSIVIDADE - MEDIA QUERY*/
+
+@media (max-width: 600px) {
+    .container-login {
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .forms {
+        width: 100%;
+    }
+
+    .forms input {
+        width: 100%;
+        height: 100%;
+    }
+
+    .forms input::placeholder {
+        font-size: 1rem;
+    }
+
+    .borda {
+        width: 90%;
+        padding: 50px 50px;
+    }
+
+    .link-esqueci {
+        margin-left: 50%;
+        font-size: 0.7rem;
+    }
+
+    .botao-entrar,
+    .botao-cadastro {
+        font-size: 1rem;
+    }
+}

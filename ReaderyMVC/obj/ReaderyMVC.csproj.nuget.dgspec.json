@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\duds\\Desktop\\Senai\\mvc-readery-pessoal\\ReaderyMVC\\ReaderyMVC.csproj": {}
+    "C:\\Users\\53278369831\\Desktop\\Readery\\ReaderyMVC\\ReaderyMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\duds\\Desktop\\Senai\\mvc-readery-pessoal\\ReaderyMVC\\ReaderyMVC.csproj": {
+    "C:\\Users\\53278369831\\Desktop\\Readery\\ReaderyMVC\\ReaderyMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\duds\\Desktop\\Senai\\mvc-readery-pessoal\\ReaderyMVC\\ReaderyMVC.csproj",
+        "projectUniqueName": "C:\\Users\\53278369831\\Desktop\\Readery\\ReaderyMVC\\ReaderyMVC.csproj",
         "projectName": "ReaderyMVC",
-        "projectPath": "C:\\Users\\duds\\Desktop\\Senai\\mvc-readery-pessoal\\ReaderyMVC\\ReaderyMVC.csproj",
-        "packagesPath": "C:\\Users\\duds\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\duds\\Desktop\\Senai\\mvc-readery-pessoal\\ReaderyMVC\\obj\\",
+        "projectPath": "C:\\Users\\53278369831\\Desktop\\Readery\\ReaderyMVC\\ReaderyMVC.csproj",
+        "packagesPath": "C:\\Users\\53278369831\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\53278369831\\Desktop\\Readery\\ReaderyMVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\duds\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\53278369831\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

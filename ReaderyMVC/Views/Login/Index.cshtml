@@ -1,0 +1,62 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readery - Login</title>
+    <link rel="stylesheet" href="~/styles/login.css" />
+    <script src="~/js/script.js" defer></script>
+    <style>
+       body {
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        } 
+    </style> 
+</head>
+
+<body>
+
+    <main class="container-login">
+        <div class="borda">
+            <img src="~/assets/logo.png" alt="Logo Readery" class="logo-login">
+
+            <form id="loginForm" asp-controller="Login" asp-action="Entrar" method="post">
+                <section class="forms">
+                    <div class="email">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="email@email.com" required>
+                    </div>
+
+                    <div class="senha">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="*******" required>
+                    </div>
+                </section>
+
+                <a href="~/Redefinicao/Index" class="link-esqueci">Esqueci minha senha</a>
+
+                <p class="erro-login @(ViewBag.Erro != null ? "mostrar" : "")">
+                    @ViewBag.Erro
+                </p>
+
+                <div class="lembre-se">
+                    <input type="checkbox" id="lembre-se">Lembre-se de mim
+                </div>
+
+                <section class="botoes">
+                    <button type="submit" id="botaoEntrar" class="botao-entrar">Entrar</button>
+                    <a href="~/Cadastro/Index" class="botao-cadastro">Cadastre-se</a>
+                </section>
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>

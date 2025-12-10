@@ -15,6 +15,10 @@ public partial class Usuario
 
     public string? FotoURL { get; set; }
 
+    public string? Genero { get; set; }
+
+    public string? Descricao { get; set; }
+
     public DateTime DataCadastro { get; set; }
 
     public virtual ICollection<Avaliacao> Avaliacaos { get; set; } = new List<Avaliacao>();
