@@ -69,6 +69,8 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.UsuarioId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Usuario_Avaliador");
+
+            entity.Property(e => e.Comentario).HasMaxLength(3000);
         });
 
         modelBuilder.Entity<Editora>(entity =>

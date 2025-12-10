@@ -286,30 +286,15 @@
 
         <section class="secao-livros">
             <div class="espaco-card">
-                <div class="card-dentro">
-                    <div class="lixeira">
-                        <button class="remover">X</button>
-                    </div>
+                @foreach(var estantelivro in Model.Estantes)
+                {
+                    <div class="card-dentro">
                     <img src="~/assets/img/divinacomedia.png" alt="" class="img-card">
-                    <div class="textos">
-                        <p class="text-card">Lorem Ipsum is simply dummy text of the printing and ty Lorem Ipsum Dolor
-                            is simply.Lorem Ipsum is simply dummy text of the printing and ty Lorem Ipsum Dolor is
-                            simply.Lorem Ipsum is simply dummy text of the printing and ty Lorem Ipsum Dolor is simply.
-                        </p>
+                        <div class="textos">
+                            <p>@estantelivro.Livro.Titulo</p>
+                        </div>
                     </div>
-                    <button class="botao-card" id="botao-card">↓</button>
-                </div>
-                <div class="card-fora">
-                    <p class="titulo-livro">A Divina Comédia</p>
-                    <div class="notas">
-                        <p class="nota">0/5</p>
-                        <button class="estrela" id="1">☆</button>
-                        <button class="estrela2" id="2">☆</button>
-                        <button class="estrela3" id="3">☆</button>
-                        <button class="estrela4" id="4">☆</button>
-                        <button class="estrela5" id="5">☆</button>
-                    </div>
-                </div>
+                }
             </div>
         </section>
         <img src="~/assets/img/divinacomedia.png" alt="" class="img-card2">

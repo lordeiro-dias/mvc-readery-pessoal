@@ -20,7 +20,7 @@ namespace ReaderyMVC.Controllers
         {
 
             var todosOsLivrinhos = _context.Livros.AsQueryable();
-            var estanteCompleta = _context.Estantes.AsQueryable();
+            var estanteCompleta = _context.Estantes.Include(e => e.Livro).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(busca))
             {
@@ -126,7 +126,15 @@ namespace ReaderyMVC.Controllers
                 UsuarioId = usuario.IdUsuario
             };
 
+            Avaliacao avaliacao = new Avaliacao
+            {
+                Nota = 0,
+                UsuarioId = usuario.IdUsuario,
+                LivroId = idlivro.IdLivro
+            };
+
             _context.Estantes.Add(estante);
+            _context.Avaliacaos.Add(avaliacao);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
@@ -179,6 +187,7 @@ namespace ReaderyMVC.Controllers
             }
 
             var livrosEstante = _context.Estantes.FirstOrDefault(e => e.IdEstante == vm.IdEstante);
+            var Avaliacao = _context.Avaliacaos.FirstOrDefault(a => a.LivroId == livrosEstante.LivroId);
 
             if(livrosEstante == null)
             {
@@ -186,6 +195,13 @@ namespace ReaderyMVC.Controllers
             }
 
             livrosEstante.PaginaAtual = vm.PaginaAtual;
+            livrosEstante.StatusId = vm.IdStatus;
+            Avaliacao.Nota = vm.Nota;
+            Avaliacao.DataAvaliacao = vm.DataAvaliacao;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

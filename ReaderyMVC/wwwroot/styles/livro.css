@@ -204,19 +204,6 @@ main {
 
 /** BOTAO DO CARD */
 
-.botao-card {
-    font-size: 1.5rem;
-    color: var(--marrom-muito-escuro);
-    background-color: var(--marrom-claro);
-    border: none;
-}
-
-.botao-card:hover {
-    color: var(--branco);
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-}
-
 .card-dentro.active .textos {
     height: auto;
 }
@@ -227,49 +214,6 @@ main {
 
 
 /** TEXTO FORA DO CARD */
-
-.card-fora {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.notas {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.estrela,
-.estrela2,
-.estrela3,
-.estrela4,
-.estrela5 {
-    font-size: 1.4rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.lixeira {
-    margin-left: 10rem;
-}
-
-.remover {
-    background: rgb(192, 3, 3);
-    border: none;
-    border-radius: 10px;
-    color: var(--branco);
-    padding: 5px 8px;
-    cursor: pointer;
-}
-
-.remover:hover {
-    box-shadow: 0 0 0 2px rgb(124, 3, 3);
-    transition: all 0.2s ease;
-}
-
 
 /** LINHAS */
 
