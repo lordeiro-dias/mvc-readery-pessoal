@@ -26,7 +26,10 @@
             <img src="~/assets/img/icone.svg" alt="" class="logo">
             <p class="titulo-icone">Readery</p>
         </div>
-        <a href="" class="link-perfil">Perfil</a>
+        <div class="alinhamento-cabecalho">
+            <a href="" class="link-perfil">Perfil</a>
+            <a href="" class="link-perfil"><img src="~/assets/img/folha1.png" alt="" class="img-perfil"></a>
+        </div>
     </header>
 
     <main>
@@ -171,26 +174,13 @@
             <div class="alinhamento-busca">
                 <button class="adiciona-livro" onclick="showModal()">Adicionar Livro</button>
                 <div class="lupa-barra">
-                    <img src="~/assets/icons/lupa.svg" alt="" class="icone-pesquisa">
                     <input type="search" id="filtro-busca" placeholder="Buscar livro...">
-                </div>
-            </div>
 
-            <div>
-                <div class="genero-texto">
-                    <p>Gênero:</p>
-                </div>
-
-                <div class="alinhamento-genero">
-                    <div class="alinhamento-botoes">
-                        <button>Todos</button>
-                        <button>Lendo</button>
-                        <button>Lidos</button>
-                        <button>Não Lidos</button>
+                    <div class="genero-texto">
+                        <p>Gênero:</p>
                     </div>
 
                     <div class="filtros">
-
                         <select id="filtro-genero">
                             <option value="todos">Todos</option>
                             <option value="poesia">Poesia</option>
@@ -204,30 +194,38 @@
                     </div>
                 </div>
             </div>
+
+            <div>
+                <div class="alinhamento-genero">
+                    <div class="alinhamento-botoes">
+                        <button>Todos</button>
+                        <button>Lendo</button>
+                        <button>Lidos</button>
+                        <button>Não Lidos</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="secao-modal-cards">
-            <dialog class="modal-card">
+            @foreach(var estantelivro in Model.Estantes)
+            {
+                var fotob64 = Convert.ToBase64String(estantelivro.Livro.CapaURL);
+
+                <dialog class="modal-card modal-detalhe-livro-@estantelivro.IdEstante">
                 <div class="fecha-modal-card">
-                    <button class="botao-cancela-modal2">X</button>
+                    <button class="botao-cancela-modal2 fechar-modal-detalhe" data-modal-id="@estantelivro.IdEstante">X</button>
                 </div>
 
                 <div class="modal-card-parte1">
-                    <img src="~/assets/img/divinacomedia.png" alt="a divina comedia" class="img-modal-card">
+                    <img src="@(fotob64 != null ? $"data:image/*;base64,{fotob64}" :   
+                            "~/assets/img/divinacomedia.png")"  alt="" class="img-modal-card">
                     <div class="separacao-textos-modal">
                         <div>
-                            <h1 class="titulo-livro-modal">A Divina Comédia</h1>
-                            <p class="texto-modal">A Divina Comédia é um poema épico de Dante Alighieri que narra a
-                                jornada do
-                                próprio autor através do Inferno, Purgatório e Paraíso, representando uma viagem
-                                espiritual e um
-                                compêndio do conhecimento medieval. Guiado primeiro pelo poeta Virgílio e depois por
-                                Beatriz,
-                                ua musa inspiradora, Dante explora o mundo após a morte, refletindo sobre fé, razão e o
-                                destino
-                                humano. </p>
+                            <h1 class="titulo-livro-modal">@estantelivro.Livro.Titulo</h1>
+                            <p class="texto-modal">@estantelivro.Livro.Sinopse</p>
                         </div>
-                        <h2 class="genero-modal">Gênero: Poesia</h2>
+                        <h2 class="genero-modal">Gênero: @string.Join(", ", estantelivro.Livro.Generos.Select(g => g.NomeGenero))</h2>
                     </div>
                 </div>
 
@@ -283,6 +281,7 @@
                 </div>
 
             </dialog>
+            }
         </section>
 
         <section class="secao-livros">
@@ -293,8 +292,9 @@
                 <div class="espaco-card">
 
                     <div class="card-dentro">
+                        <button class="abrir-modal-detalhe" data-modal-id="@estantelivro.IdEstante">
                         <img src="@(fotob64 != null ? $"data:image/*;base64,{fotob64}" :   
-                            "~/assets/img/divinacomedia.png")"  alt="" class="img-card">
+                            "~/assets/img/divinacomedia.png")"  alt="" class="img-card"></button>
                         <div class="textos">
                             <p>@estantelivro.Livro.Titulo</p>
                         </div>

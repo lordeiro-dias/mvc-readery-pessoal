@@ -20,7 +20,7 @@ namespace ReaderyMVC.Controllers
         {
 
             var todosOsLivrinhos = _context.Livros.AsQueryable();
-            var estanteCompleta = _context.Estantes.Include(e => e.Livro).AsQueryable();
+            var estanteCompleta = _context.Estantes.Include(e => e.Livro).ThenInclude(l => l.Generos).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(busca))
             {
