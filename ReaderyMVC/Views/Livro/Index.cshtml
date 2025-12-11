@@ -72,14 +72,14 @@
                 <button class="adicao-caixa" onclick="showModalAdicao()">Adicione-o manualmente!</button>
             </section>
             <section class="livros" id="lista-livros-modal">
-                    @foreach (var livro in Model.Livros)
-                    {
-                        <form asp-action="CriarCard" asp-controller="Livro" method="post">
-                            <li class="livrinho-modal">
-                                <button type="submit" name="livroid" value="@livro.IdLivro">@livro.Titulo</button> 
-                            </li>
-                        </form>
-                    }
+                @foreach (var livro in Model.Livros)
+                {
+                    <form asp-action="CriarCard" asp-controller="Livro" method="post">
+                        <li class="livrinho-modal">
+                            <button type="submit" name="livroid" value="@livro.IdLivro">@livro.Titulo</button>
+                        </li>
+                    </form>
+                }
             </section>
             <button onclick="closeModal()" class="botao-fechar">X</button>
         </dialog>
@@ -98,7 +98,8 @@
                 </div>
             </section>
 
-            <form asp-action="Criar" asp-controller="Livro" id="form-adicao-livro" method="post" enctype="multipart/form-data">
+            <form asp-action="Criar" asp-controller="Livro" id="form-adicao-livro" method="post"
+                enctype="multipart/form-data">
 
                 <section class="meio2">
                     <section class="meio-esquerda2">
@@ -285,17 +286,19 @@
         </section>
 
         <section class="secao-livros">
-            <div class="espaco-card">
-                @foreach(var estantelivro in Model.Estantes)
-                {
+            @foreach (var estantelivro in Model.Estantes)
+            {
+                <div class="espaco-card">
+
                     <div class="card-dentro">
-                    <img src="~/assets/img/divinacomedia.png" alt="" class="img-card">
+                        <img src="~/assets/img/divinacomedia.png" alt="" class="img-card">
                         <div class="textos">
                             <p>@estantelivro.Livro.Titulo</p>
                         </div>
                     </div>
-                }
-            </div>
+
+                </div>
+            }
         </section>
         <img src="~/assets/img/divinacomedia.png" alt="" class="img-card2">
     </main>

@@ -11,7 +11,7 @@ namespace ReaderyMVC
 
         public int? NumPaginas { get; set; }
 
-        public string? CapaURL { get; set; }
+        public byte[]? CapaURL { get; set; }
 
         public int EditoraId { get; set; }
 

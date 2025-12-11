@@ -11,7 +11,7 @@ public partial class Avaliacao
 
     public DateTime DataAvaliacao { get; set; }
 
-    public string Comentario { get; set; }
+    public string? Comentario { get; set; }
 
     public int UsuarioId { get; set; }
 

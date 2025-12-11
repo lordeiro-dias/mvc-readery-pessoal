@@ -576,7 +576,6 @@ C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\4qkw
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\v3w291dmty-jucj0ky15j.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\r1kfu8eyl4-4eaur3sdcu.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\ReaderyMVC.sourcelink.json
-C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\0vnl447cp9-akzjzgnts5.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\yf4cpm48m4-lwy0z4bpha.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\oq9cdho2ej-5ipweew5fc.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\iviv2lf2y5-76yxwx70pk.gz
@@ -853,3 +852,4 @@ C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\ref\
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\v9g63lyvxt-9y01p4o0i8.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\647cx4p1v5-{0}-9y01p4o0i8-9y01p4o0i8.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\8vr0yks04v-{0}-489gu1944y-489gu1944y.gz
+C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\0vnl447cp9-489gu1944y.gz

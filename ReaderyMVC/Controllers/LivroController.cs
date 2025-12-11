@@ -46,7 +46,7 @@ namespace ReaderyMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar(string titulo, string autor, string genero, string sinopse, int numpaginas, string capaurl)
+        public IActionResult Criar(string titulo, string autor, string genero, string sinopse, int numpaginas, IFormFile capaurl)
         {
 
             int? usuarioId = HttpContext.Session.GetInt32("UsuarioId");
@@ -90,10 +90,15 @@ namespace ReaderyMVC.Controllers
                 Titulo = titulo,
                 Sinopse = sinopse,
                 NumPaginas = numpaginas,
-                CapaURL = capaurl,
                 UsuarioId = usuario.IdUsuario,
                 EditoraId = 1
             };
+
+            using (var ms = new MemoryStream())
+            {
+                capaurl.CopyTo(ms);
+                livro.CapaURL = ms.ToArray();
+            }
 
             livro.Generos.Add(generoliterario);
             livro.Autors.Add(autores);
