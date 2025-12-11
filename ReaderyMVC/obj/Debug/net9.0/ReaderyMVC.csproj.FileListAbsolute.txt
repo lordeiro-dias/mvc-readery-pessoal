@@ -569,7 +569,6 @@ C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\refint\ReaderyM
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\ReaderyMVC.pdb
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\ReaderyMVC.genruntimeconfig.cache
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\ref\ReaderyMVC.dll
-C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\c5yl0v7k19-4mw48fskcd.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\96wyqfy64w-g2iumks37n.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\ytptdsq89r-ewulojlqlq.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\4qkwcmwwi2-4oeh1uj0x1.gz
@@ -852,4 +851,5 @@ C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\ref\
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\v9g63lyvxt-9y01p4o0i8.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\647cx4p1v5-{0}-9y01p4o0i8-9y01p4o0i8.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\8vr0yks04v-{0}-489gu1944y-489gu1944y.gz
-C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\0vnl447cp9-489gu1944y.gz
+C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\0vnl447cp9-50skdyxg6t.gz
+C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\c5yl0v7k19-o2udvad52j.gz

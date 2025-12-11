@@ -288,10 +288,13 @@
         <section class="secao-livros">
             @foreach (var estantelivro in Model.Estantes)
             {
+                var fotob64 = Convert.ToBase64String(estantelivro.Livro.CapaURL);
+
                 <div class="espaco-card">
 
                     <div class="card-dentro">
-                        <img src="~/assets/img/divinacomedia.png" alt="" class="img-card">
+                        <img src="@(fotob64 != null ? $"data:image/*;base64,{fotob64}" :   
+                            "~/assets/img/divinacomedia.png")"  alt="" class="img-card">
                         <div class="textos">
                             <p>@estantelivro.Livro.Titulo</p>
                         </div>

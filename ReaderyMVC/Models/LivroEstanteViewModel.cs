@@ -13,6 +13,8 @@ namespace ReaderyMVC
 
         public byte[]? CapaURL { get; set; }
 
+        public string? FotoBase64 { get; set; }
+
         public int EditoraId { get; set; }
 
         public int? UsuarioId { get; set; }

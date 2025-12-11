@@ -80,9 +80,6 @@ namespace ReaderyMVC.Controllers
                 {
                     NomeAutor = autor
                 };
-
-                _context.Autors.Add(autores);
-                _context.SaveChanges();
             }
 
             Livro livro = new Livro
@@ -92,6 +89,7 @@ namespace ReaderyMVC.Controllers
                 NumPaginas = numpaginas,
                 UsuarioId = usuario.IdUsuario,
                 EditoraId = 1
+
             };
 
             using (var ms = new MemoryStream())
@@ -102,6 +100,8 @@ namespace ReaderyMVC.Controllers
 
             livro.Generos.Add(generoliterario);
             livro.Autors.Add(autores);
+
+            
 
             _context.Livros.Add(livro);
             _context.SaveChanges();
