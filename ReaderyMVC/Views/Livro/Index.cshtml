@@ -208,67 +208,129 @@
         </section>
 
         <section class="secao-modal-cards">
-            @foreach(var estantelivro in Model.Estantes)
+            @foreach (var estantelivro in Model.Estantes)
             {
-                    var fotob64 = Convert.ToBase64String(estantelivro.Livro.CapaURL);
-                    var avaliacaoNota = Model.Avaliacaos.FirstOrDefault(a => a.LivroId == estantelivro.Livro.IdLivro);
-                    var nota = 0;
+                var fotob64 = Convert.ToBase64String(estantelivro.Livro.CapaURL);
+                var avaliacaoNota = Model.Avaliacaos.FirstOrDefault(a => a.LivroId == estantelivro.Livro.IdLivro);
+                var nota = 0;
 
-                if(avaliacaoNota == null)
+                if (avaliacaoNota == null)
                 {
                     nota = 0;
-                }else{
+                }
+                else
+                {
                     nota = avaliacaoNota.Nota;
-                } 
+                }
+
+                <dialog class="modal-exclui-livro modal-detalhe-exclui-@estantelivro.IdEstante">
+                    <div>
+                        <h1>Deseja excluir **@estantelivro.Livro.Titulo** da sua biblioteca?</h1>
+                    </div>
+                    <div>
+                        <form asp-action="Excluir" asp-controller="Livro" method="post">
+                            <input type="hidden" name="id" value="@estantelivro.IdEstante">
+                            <button type="submit" class="botoes-modal-exclui-livro">
+                                Sim, remover da Estante
+                            </button>
+                        </form>
+
+                        <button type="button" class="botoes-modal-exclui-livro"
+                            onclick="abrirModalExcluirCatalogo(@estantelivro.Livro.IdLivro, @estantelivro.IdEstante)">
+                            Excluir Livro do Catálogo
+                        </button>
+
+                        <button class="botoes-modal-exclui-livro botao-fecha-modal-exclui"
+                            data-modal-id="@estantelivro.IdEstante">
+                            Cancelar
+                        </button>
+                    </div>
+                </dialog>
+
+                <dialog class="modal-exclui-catalogo modal-detalhe-catalogo-@estantelivro.Livro.IdLivro">
+                    <div>
+                        <h1>AVISO: Excluir do Catálogo!</h1>
+                        <p>Você tem certeza que deseja excluir "**@estantelivro.Livro.Titulo**" do catálogo? Esta ação é
+                            **permanente**!</p>
+                    </div>
+                    <div>
+                        <form asp-action="ExcluirLivro" asp-controller="Livro" method="post">
+                            <input type="hidden" name="livroId" value="@estantelivro.Livro.IdLivro">
+                            <button type="submit" class="botoes-modal-exclui-livro danger">
+                                SIM, Excluir PERMANENTEMENTE
+                            </button>
+                        </form>
+
+                        <button class="botoes-modal-exclui-livro botao-fecha-modal-catalogo"
+                            data-livro-id="@estantelivro.Livro.IdLivro">
+                            Cancelar
+                        </button>
+                    </div>
+                </dialog>
 
                 <dialog class="modal-card modal-detalhe-livro-@estantelivro.IdEstante">
-                <div class="fecha-modal-card">
-                    <button class="botao-cancela-modal2 fechar-modal-detalhe" data-modal-id="@estantelivro.IdEstante">X</button>
-                </div>
-
-                <div class="modal-card-parte1">
-                    <img src="@(fotob64 != null ? $"data:image/*;base64,{fotob64}" :   
-                            "~/assets/img/divinacomedia.png")"  alt="" class="img-modal-card">
-                    <div class="separacao-textos-modal">
-                        <div>
-                            <h1 class="titulo-livro-modal">@estantelivro.Livro.Titulo</h1>
-                            <p class="texto-modal">@estantelivro.Livro.Sinopse</p>
-                        </div>
-                        <h2 class="genero-modal">Gênero: @string.Join(", ", estantelivro.Livro.Generos.Select(g => g.NomeGenero))</h2>
+                    <div class="fecha-modal-card">
+                        <button class="botao-cancela-modal2 fechar-modal-detalhe"
+                            data-modal-id="@estantelivro.IdEstante">X</button>
                     </div>
-                </div>
 
-                <hr class="linha-modal2">
+                    <h1 class="titulo-livro-modal">@estantelivro.Livro.Titulo</h1>
 
-                <div class="modal-card-parte2">
-                    <div class="linha-modal-comentario">
-                        <div class="alinhar-botao-comentario">
-                            <h1 class="titulo-comentario">Cometário do Leitor:</h1>
-                            <button class="botao-edita-comentario"><img src="~/assets/icons/Vector.svg" alt=""></button>
+                    <div class="modal-card-parte1">
+                        <img src="@(fotob64 != null ? $"data:image/*;base64,{fotob64}" :   
+                            "~/assets/img/divinacomedia.png")" alt="" class="img-modal-card">
+                        <div class="separacao-textos-modal">
+                            <div>
+                                <p class="texto-modal">@estantelivro.Livro.Sinopse</p>
+                            </div>
+                            <h2 class="genero-modal">Gênero: @string.Join(", ", estantelivro.Livro.Generos.Select(g =>
+                            g.NomeGenero))</h2>
                         </div>
-                        <div class="alinhamento-botao-modal" id="comentario-1">
-                            <div id="texto-comentario-1">
-                                <p class="comentario-leitor"></p>
+                    </div>
+
+                    <hr class="linha-modal2">
+
+                    <div class="modal-card-parte2">
+                        <div class="linha-modal-comentario">
+                            <div class="alinhar-botao-comentario">
+                                <h1 class="titulo-comentario">Cometário do Leitor:</h1>
+                            </div>
+                            <div class="alinhamento-botao-modal" id="comentario-1">
+                                <div id="texto-comentario-1">
+                                    <p class="comentario-leitor"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="avaliacao-modal-alinhamento">
+                            <div class="avaliacao-modal">
+                                <h2>Avaliação:</h2>
+                                <p>@nota / 5</p>
+                            </div>
+
+                            <div class="estado-leitura-alinhamento">
+                                <h2 class="estado-leitura-modal">Estado de Leitura:</h2>
+                                <select id="" class="select-modal">
+                                    <option value="quero-ler">Quero Ler</option>
+                                    <option value="quero-ler">Lendo</option>
+                                    <option value="quero-ler">Lido</option>
+                                </select>
+                            </div>
+                            <div class="botoes-exclui-edita-modal">
+                                <div>
+                                    <button class="editar" data-modal-id="@estantelivro.IdEstante">Editar
+                                        Livro</button>
+                                </div>
+                                <div>
+                                    <form asp-controller="Livro" asp-action="Excluir" method="post">
+                                        <input type="hidden" name="id" value="@estantelivro.IdEstante">
+                                        <button type="button" class="excluir" data-modal2-id="@estantelivro.IdEstante"
+                                            onclick="abrirModalExcluir(@estantelivro.IdEstante)">Excluir Livro</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="avaliacao-modal-alinhamento">
-                        <div>
-                            <h2 class="avaliação-modal">Avaliação:</h2>
-                            <p> @nota / 5</p>
-                        </div>
-
-                        <div class="estado-leitura-alinhamento">
-                            <h2 class="estado-leitura-modal">Estado de Leitura:</h2>
-                            <select id="" class="select-modal">
-                                <option value="quero-ler">Quero Ler</option>
-                                <option value="quero-ler">Lendo</option>
-                                <option value="quero-ler">Lido</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
 
                 </dialog>
             }
@@ -283,8 +345,8 @@
 
                     <div class="card-dentro">
                         <button class="abrir-modal-detalhe" data-modal-id="@estantelivro.IdEstante">
-                        <img src="@(fotob64 != null ? $"data:image/*;base64,{fotob64}" :   
-                            "~/assets/img/divinacomedia.png")"  alt="" class="img-card"></button>
+                            <img src="@(fotob64 != null ? $"data:image/*;base64,{fotob64}" :   
+                            "~/assets/img/divinacomedia.png")" alt="" class="img-card"></button>
                         <div class="textos">
                             <p>@estantelivro.Livro.Titulo</p>
                         </div>

@@ -149,6 +149,47 @@ namespace ReaderyMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult Excluir(int id)
+        {
+            var estante = _context.Estantes.FirstOrDefault(e => e.IdEstante == id);
+
+            if(estante == null)
+            {
+                return NotFound();
+            }
+
+            _context.Estantes.Remove(estante);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Livro");
+        }
+
+        [HttpPost]
+        public IActionResult ExcluirLivro(int livroId)
+        {
+            var livroParaExcluir = _context.Livros.Include(l => l.Autors).Include(g => g.Generos).FirstOrDefault(l => l.IdLivro == livroId);
+
+            if(livroParaExcluir == null)
+            {
+                return NotFound();
+            }
+
+            livroParaExcluir.Autors.Clear();
+            livroParaExcluir.Generos.Clear();
+
+            var avaliacoes = _context.Avaliacaos.Where(a => a.LivroId == livroId).ToList();
+            _context.Avaliacaos.RemoveRange(avaliacoes);
+
+            var estantes = _context.Estantes.Where(e => e.LivroId == livroId).ToList();
+            _context.Estantes.RemoveRange(estantes);
+
+            _context.Livros.Remove(livroParaExcluir);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Livro");
+        }
+
         [HttpGet]
         public IActionResult Editar(int id)
         {
