@@ -210,7 +210,16 @@
         <section class="secao-modal-cards">
             @foreach(var estantelivro in Model.Estantes)
             {
-                var fotob64 = Convert.ToBase64String(estantelivro.Livro.CapaURL);
+                    var fotob64 = Convert.ToBase64String(estantelivro.Livro.CapaURL);
+                    var avaliacaoNota = Model.Avaliacaos.FirstOrDefault(a => a.LivroId == estantelivro.Livro.IdLivro);
+                    var nota = 0;
+
+                if(avaliacaoNota == null)
+                {
+                    nota = 0;
+                }else{
+                    nota = avaliacaoNota.Nota;
+                } 
 
                 <dialog class="modal-card modal-detalhe-livro-@estantelivro.IdEstante">
                 <div class="fecha-modal-card">
@@ -229,29 +238,17 @@
                     </div>
                 </div>
 
-                <hr class="linha-modal">
                 <hr class="linha-modal2">
 
                 <div class="modal-card-parte2">
-                    <div>
+                    <div class="linha-modal-comentario">
                         <div class="alinhar-botao-comentario">
                             <h1 class="titulo-comentario">Cometário do Leitor:</h1>
                             <button class="botao-edita-comentario"><img src="~/assets/icons/Vector.svg" alt=""></button>
                         </div>
                         <div class="alinhamento-botao-modal" id="comentario-1">
                             <div id="texto-comentario-1">
-                                <p class="comentario-leitor">Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-                                    1500s.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has
-                                    been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply
-                                    dummy
-                                    text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                                    standard
-                                    dummy text ever since the 1500s</p>
+                                <p class="comentario-leitor"></p>
                             </div>
                         </div>
                     </div>
@@ -259,17 +256,10 @@
                     <div class="avaliacao-modal-alinhamento">
                         <div>
                             <h2 class="avaliação-modal">Avaliação:</h2>
-                            <div>
-                                <button class="estrela" id="1">☆</button>
-                                <button class="estrela2" id="2">☆</button>
-                                <button class="estrela3" id="3">☆</button>
-                                <button class="estrela4" id="4">☆</button>
-                                <button class="estrela5" id="5">☆</button>
-                            </div>
-                            <p>0/5</p>
+                            <p> @nota / 5</p>
                         </div>
 
-                        <div>
+                        <div class="estado-leitura-alinhamento">
                             <h2 class="estado-leitura-modal">Estado de Leitura:</h2>
                             <select id="" class="select-modal">
                                 <option value="quero-ler">Quero Ler</option>
@@ -280,7 +270,7 @@
                     </div>
                 </div>
 
-            </dialog>
+                </dialog>
             }
         </section>
 

@@ -20,7 +20,10 @@ namespace ReaderyMVC.Controllers
         {
 
             var todosOsLivrinhos = _context.Livros.AsQueryable();
-            var estanteCompleta = _context.Estantes.Include(e => e.Livro).ThenInclude(l => l.Generos).AsQueryable();
+            var avaliacaousuario = _context.Avaliacaos.AsQueryable();
+            var estanteCompleta = _context.Estantes.Include(a => a.Status).Include(e => e.Livro).ThenInclude(l => l.Generos).AsQueryable();
+            
+
 
             if (!string.IsNullOrWhiteSpace(busca))
             {
@@ -38,6 +41,7 @@ namespace ReaderyMVC.Controllers
             {
                 Livros = todosOsLivrinhos.OrderBy(l => l.Titulo).ToList(),
                 Estantes = estanteCompleta.ToList(),
+                Avaliacaos = avaliacaousuario.ToList(),
                 BuscaCard = buscacard,
                 Busca = busca
             };

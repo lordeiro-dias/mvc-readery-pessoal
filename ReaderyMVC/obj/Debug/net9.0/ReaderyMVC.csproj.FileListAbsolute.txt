@@ -852,4 +852,4 @@ C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\0vnl
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\c5yl0v7k19-o2udvad52j.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\9mu5m7q08t-{0}-o2udvad52j-o2udvad52j.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\1thjau59n3-{0}-k3ulgy11xe-k3ulgy11xe.gz
-C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\8vr0yks04v-{0}-7quqj58804-7quqj58804.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\8vr0yks04v-{0}-wssw4gilzw-wssw4gilzw.gz

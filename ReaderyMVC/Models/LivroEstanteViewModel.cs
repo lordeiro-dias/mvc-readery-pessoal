@@ -27,6 +27,10 @@ namespace ReaderyMVC
 
         public string? BuscaCard { get; set; }
 
+        public byte Nota { get; set; }
+
+        public List<Avaliacao> Avaliacaos { get; set; } = new List<Avaliacao>();
+
         public List<Estante> Estantes { get; set; } = new List<Estante>();
 
         public List<Livro> Livros { get; set; } = new List<Livro>();
