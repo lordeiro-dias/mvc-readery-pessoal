@@ -224,47 +224,52 @@
                 }
 
                 <dialog class="modal-exclui-livro modal-detalhe-exclui-@estantelivro.IdEstante">
-                    <div>
-                        <h1>Deseja excluir **@estantelivro.Livro.Titulo** da sua biblioteca?</h1>
-                    </div>
-                    <div>
-                        <form asp-action="Excluir" asp-controller="Livro" method="post">
-                            <input type="hidden" name="id" value="@estantelivro.IdEstante">
-                            <button type="submit" class="botoes-modal-exclui-livro">
-                                Sim, remover da Estante
+                    <div class="alinhamento-botoes-modal-excluir">
+                        <div class="texto-modal-exclui">
+                            <h1>Deseja excluir @estantelivro.Livro.Titulo da sua biblioteca?</h1>
+                        </div>
+                        <div class="alinha-botao-modal-excluir">
+                            <form asp-action="Excluir" asp-controller="Livro" method="post">
+                                <input type="hidden" name="id" value="@estantelivro.IdEstante">
+                                <button type="submit" class="botoes-modal-exclui-livro">
+                                    Sim, remover da Estante
+                                </button>
+                            </form>
+
+                            <button type="button" class="botoes-modal-exclui-livro"
+                                onclick="abrirModalExcluirCatalogo(@estantelivro.Livro.IdLivro, @estantelivro.IdEstante)">
+                                Excluir Livro do Catálogo
                             </button>
-                        </form>
-
-                        <button type="button" class="botoes-modal-exclui-livro"
-                            onclick="abrirModalExcluirCatalogo(@estantelivro.Livro.IdLivro, @estantelivro.IdEstante)">
-                            Excluir Livro do Catálogo
-                        </button>
-
-                        <button class="botoes-modal-exclui-livro botao-fecha-modal-exclui"
-                            data-modal-id="@estantelivro.IdEstante">
-                            Cancelar
-                        </button>
+                        </div>
+                        <div class="alinhamento-cancelar">
+                            <button class="botoes-modal-exclui-livro-cancela botao-fecha-modal-exclui"
+                                data-modal-id="@estantelivro.IdEstante">
+                                Cancelar
+                            </button>
+                        </div>
                     </div>
                 </dialog>
 
                 <dialog class="modal-exclui-catalogo modal-detalhe-catalogo-@estantelivro.Livro.IdLivro">
-                    <div>
-                        <h1>AVISO: Excluir do Catálogo!</h1>
-                        <p>Você tem certeza que deseja excluir "**@estantelivro.Livro.Titulo**" do catálogo? Esta ação é
-                            **permanente**!</p>
-                    </div>
-                    <div>
-                        <form asp-action="ExcluirLivro" asp-controller="Livro" method="post">
-                            <input type="hidden" name="livroId" value="@estantelivro.Livro.IdLivro">
-                            <button type="submit" class="botoes-modal-exclui-livro danger">
-                                SIM, Excluir PERMANENTEMENTE
-                            </button>
-                        </form>
+                    <div class="alinhamento-catalogo">
+                        <div class="textos-exclui-catalogo">
+                            <h1>Excluir do Catálogo?</h1>
+                            <p>Você tem certeza que deseja excluir "@estantelivro.Livro.Titulo" do catálogo? Esta ação é
+                                permanente!</p>
+                        </div>
+                        <div class="alinha-botao-catalogo">
+                            <form asp-action="ExcluirLivro" asp-controller="Livro" method="post">
+                                <input type="hidden" name="livroId" value="@estantelivro.Livro.IdLivro">
+                                <button type="submit" class="botoes-modal-exclui-livro danger">
+                                    SIM, Excluir PERMANENTEMENTE
+                                </button>
+                            </form>
 
-                        <button class="botoes-modal-exclui-livro botao-fecha-modal-catalogo"
-                            data-livro-id="@estantelivro.Livro.IdLivro">
-                            Cancelar
-                        </button>
+                            <button class="botoes-modal-exclui-livro botao-fecha-modal-catalogo"
+                                data-livro-id="@estantelivro.Livro.IdLivro">
+                                Cancelar
+                            </button>
+                        </div>
                     </div>
                 </dialog>
 

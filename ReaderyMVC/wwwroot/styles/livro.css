@@ -299,9 +299,9 @@ main {
 
 
 /** MODAL CARD  */
-.modal-exclui-livro{
-    width: 30vw;
-    height: 20vh;
+.modal-exclui-catalogo{
+    width: 40vw;
+    height: 28vh;
     border-radius: 30px;
     border: 4px solid var(--marrom-muito-escuro);
     background-color: var(--begeescuro);
@@ -313,6 +313,100 @@ main {
     z-index: 14;
     flex-direction: column;
     padding: 1%;
+}
+
+.textos-exclui-catalogo{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+
+.alinha-botao-catalogo{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.textos-exclui-catalogo h1{
+    text-align: center;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.textos-exclui-catalogo p{
+    font-size: 1.1rem;
+}
+
+.alinhamento-catalogo{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-exclui-livro{
+    width: 40vw;
+    height: 28vh;
+    border-radius: 30px;
+    border: 4px solid var(--marrom-muito-escuro);
+    background-color: var(--begeescuro);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    z-index: 14;
+    flex-direction: column;
+    padding: 1%;
+}
+
+.alinhamento-botoes-modal-excluir{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.texto-modal-exclui{
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.botoes-modal-exclui-livro-cancela{
+    background: none;
+    border: none;
+    width: 8vw;
+    font-weight: 700;
+    color: var(--marrom-muito-escuro);
+    outline: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 20px;
+}
+
+.botoes-modal-exclui-livro{
+    background-color: var(--branco);
+    border-radius: 30px;
+    border: none;
+    width: 13vw;
+    height: 45px;
+    font-weight: 700;
+    color: var(--marrom-muito-escuro);
+    outline: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.alinhamento-cancelar{
+    display: flex;
+    justify-content: center;
+}
+
+.alinha-botao-modal-excluir{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 50px;
 }
 
 .genero-modal{
@@ -515,3 +609,5 @@ main {
     width: 28vw;
     align-items: center;
 }
+
+

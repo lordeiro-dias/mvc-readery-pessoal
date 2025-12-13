@@ -74,7 +74,7 @@ namespace ReaderyMVC.Controllers
 
             if (numpaginas <= 0)
             {
-                ViewBag.Erro = "Número de páginas inválido";
+                
                 return View("Index");
             }
 
