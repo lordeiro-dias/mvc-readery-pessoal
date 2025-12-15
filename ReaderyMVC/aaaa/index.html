@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="editar.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Readery - Editar</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="alinhamento-cabecalho">
+            <img src="icone.svg" alt="" class="logo">
+            <p class="titulo-icone">Readery</p>
+        </div>
+        <div class="alinhamento-cabecalho">
+            <a href="" class="link-perfil">Perfil</a>
+            <a href="" class="link-perfil"><img src="~/assets/img/folha1.png" alt="" class="img-perfil"></a>
+        </div>
+    </header>
+    <main>
+        <section class="textos-topo">
+            <h1>Titulo do Livro</h1>
+            <div class="alinhar-texto-topo">
+                <p>Atualize os detalhes visuais, seu status de leitura e anotações pessoais sobre esta obra.</p>
+                <p>Ultima Edição: Há 2 horas</p>
+            </div>
+        </section>
+
+        <section class="conteudo">
+            <form action="">
+                <div class="separacao">
+                    <div class="esquerda">
+                        <div class="card-livro">
+                            <button>
+                                <img src="divinacomedia.png" alt="" class="img-card">
+                            </button>
+                        </div>
+                        <div class="legenda-livro">
+                            <h2>Capa do Livro</h2>
+                            <p>Formatos aceitos: JPG, JPEG, PNG.</p>
+                        </div>
+                    </div>
+                    <div class="direita">
+                        <div class="estado-leitura">
+                            <h1>Estado de Leitura</h1>
+                            <div class="estados">
+                                <input type="radio" name="EstadoLeitura" id="queroler" checked="checked">
+                                <label for="queroler" class="estado-label">Quero Ler</label>
+
+                                <input type="radio" name="EstadoLeitura" id="lendo">
+                                <label for="lendo" class="estado-label">Lendo</label>
+
+                                <input type="radio" name="EstadoLeitura" id="lido">
+                                <label for="lido" class="estado-label">Lido</label>
+                            </div>
+                        </div>
+                        <div class="avaliacao">
+                            <div class="titulo-avaliacao">
+                                <label for="">Sua Avaliação</label>
+                                <p class="nota">0/5</p>
+                            </div>
+                            <div class="estrelas">
+                                <input type="radio" name="estrelinha" id="nota1" checked="checked">
+                                <label for="nota1" class="fa fa-star"></label>
+                                <input type="radio" name="estrelinha" id="nota2">
+                                <label for="nota2" class="fa fa-star"></label>
+                                <input type="radio" name="estrelinha" id="nota3">
+                                <label for="nota3" class="fa fa-star"></label>
+                                <input type="radio" name="estrelinha" id="nota4">
+                                <label for="nota4" class="fa fa-star"></label>
+                                <input type="radio" name="estrelinha" id="nota5">
+                                <label for="nota5" class="fa fa-star"></label>
+                            </div>
+                        </div>
+                        <div class="comentario">
+                            <div class="comentario-alinhamento">
+                                <div class="titulo-comentario">
+                                    <label for="">Comentários</label>
+                                </div>
+                                <div>
+                                    <textarea name="" id=""
+                                        placeholder="Escreva aqui suas anotações, citações favoritas ou pensamentos sobre o livro."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
