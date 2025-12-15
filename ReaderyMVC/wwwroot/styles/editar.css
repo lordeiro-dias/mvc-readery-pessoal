@@ -1,10 +1,11 @@
 body {
-    background-image: url("background.png");
+    background-image: url("~/../../assets/img/background.png");
 }
 
 main {
     padding: 20px 60px;
     font-family: "Roboto", sans-serif;
+    margin-top: 15vh;
 }
 .cabecalho {
     background-color: var(--marrom-escuro);
@@ -14,6 +15,10 @@ main {
     align-items: center;
     padding: 20px 60px;
     margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
 }
 
 .alinhamento-cabecalho {
@@ -245,4 +250,9 @@ input[type="radio"]{
 .comentario-alinhamento{
     display: flex;
     flex-direction: column;
+}
+
+.input-escondido2 
+{
+    display: none;
 }

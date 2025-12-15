@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using NuGet.Protocol.Plugins;
 using ReaderyMVC.Data;
 using ReaderyMVC.Models;
 
@@ -19,10 +20,19 @@ namespace ReaderyMVC.Controllers
         public IActionResult Index(string? busca = null, string? buscacard = null)
         {
 
+            int? usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+            if (usuarioId == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.IdUsuario == usuarioId);
+
             var todosOsLivrinhos = _context.Livros.AsQueryable();
             var avaliacaousuario = _context.Avaliacaos.AsQueryable();
             var estanteCompleta = _context.Estantes.Include(a => a.Status).Include(e => e.Livro).ThenInclude(l => l.Generos).AsQueryable();
-            
+
 
 
             if (!string.IsNullOrWhiteSpace(busca))
@@ -39,8 +49,8 @@ namespace ReaderyMVC.Controllers
 
             LivroEstanteViewModel viewModel = new LivroEstanteViewModel
             {
-                Livros = todosOsLivrinhos.OrderBy(l => l.Titulo).ToList(),
-                Estantes = estanteCompleta.ToList(),
+                Livros = todosOsLivrinhos.Where(liv => liv.UsuarioId == null || liv.UsuarioId == usuarioId).OrderBy(l => l.Titulo).ToList(),
+                Estantes = estanteCompleta.Where(e => e.UsuarioId == usuarioId).ToList(),
                 Avaliacaos = avaliacaousuario.ToList(),
                 BuscaCard = buscacard,
                 Busca = busca
@@ -55,7 +65,7 @@ namespace ReaderyMVC.Controllers
 
             int? usuarioId = HttpContext.Session.GetInt32("UsuarioId");
 
-            if(usuarioId == null)
+            if (usuarioId == null)
             {
                 return RedirectToAction("Index", "Login");
             }
@@ -74,11 +84,11 @@ namespace ReaderyMVC.Controllers
 
             if (numpaginas <= 0)
             {
-                
+
                 return View("Index");
             }
 
-            if(autores == null)
+            if (autores == null)
             {
                 autores = new Autor
                 {
@@ -105,7 +115,7 @@ namespace ReaderyMVC.Controllers
             livro.Generos.Add(generoliterario);
             livro.Autors.Add(autores);
 
-            
+
 
             _context.Livros.Add(livro);
             _context.SaveChanges();
@@ -118,7 +128,7 @@ namespace ReaderyMVC.Controllers
         {
             int? usuarioId = HttpContext.Session.GetInt32("UsuarioId");
 
-            if(usuarioId == null)
+            if (usuarioId == null)
             {
                 return RedirectToAction("Index", "Login");
             }
@@ -154,7 +164,7 @@ namespace ReaderyMVC.Controllers
         {
             var estante = _context.Estantes.FirstOrDefault(e => e.IdEstante == id);
 
-            if(estante == null)
+            if (estante == null)
             {
                 return NotFound();
             }
@@ -170,7 +180,7 @@ namespace ReaderyMVC.Controllers
         {
             var livroParaExcluir = _context.Livros.Include(l => l.Autors).Include(g => g.Generos).FirstOrDefault(l => l.IdLivro == livroId);
 
-            if(livroParaExcluir == null)
+            if (livroParaExcluir == null)
             {
                 return NotFound();
             }
@@ -190,17 +200,18 @@ namespace ReaderyMVC.Controllers
             return RedirectToAction("Index", "Livro");
         }
 
+
         [HttpGet]
         public IActionResult Editar(int id)
         {
             int? usuarioId = HttpContext.Session.GetInt32("UsuarioId");
 
-            if(usuarioId == null)
+            if (usuarioId == null)
             {
                 return RedirectToAction("Index", "Login");
             }
 
-            var livrosEstante = _context.Estantes.FirstOrDefault(l => l.IdEstante == id);
+            var livrosEstante = _context.Estantes.Include(l => l.Livro).Include(e => e.Status).FirstOrDefault(l => l.IdEstante == id);
             var Avaliacao = _context.Avaliacaos.FirstOrDefault(a => a.LivroId == livrosEstante.LivroId);
 
             if (livrosEstante == null)
@@ -211,12 +222,16 @@ namespace ReaderyMVC.Controllers
             EditarEstanteViewModel vm = new EditarEstanteViewModel
             {
                 IdEstante = livrosEstante.IdEstante,
+                IdLivro = livrosEstante.LivroId,
                 PaginaAtual = livrosEstante.PaginaAtual,
                 IdStatus = livrosEstante.StatusId,
                 IdAvaliacao = Avaliacao.IdAvaliacao,
                 Nota = Avaliacao.Nota,
                 DataAvaliacao = Avaliacao.DataAvaliacao,
                 UsuarioId = livrosEstante.UsuarioId,
+                Comentario = Avaliacao.Comentario,
+                Titulo = livrosEstante.Livro.Titulo,
+                CapaURL = livrosEstante.Livro.CapaURL,
 
                 Estados = _context.EstadoLeituras.ToList(),
                 Avaliars = _context.Avaliacaos.ToList(),
@@ -231,15 +246,15 @@ namespace ReaderyMVC.Controllers
         {
             int? usuarioId = HttpContext.Session.GetInt32("UsuarioId");
 
-            if(usuarioId == null)
+            if (usuarioId == null)
             {
                 return RedirectToAction("Index", "Login");
             }
 
-            var livrosEstante = _context.Estantes.FirstOrDefault(e => e.IdEstante == vm.IdEstante);
+            var livrosEstante = _context.Estantes.Include(l => l.Livro).FirstOrDefault(e => e.IdEstante == vm.IdEstante);
             var Avaliacao = _context.Avaliacaos.FirstOrDefault(a => a.LivroId == livrosEstante.LivroId);
 
-            if(livrosEstante == null)
+            if (livrosEstante == null)
             {
                 return NotFound();
             }
@@ -247,11 +262,44 @@ namespace ReaderyMVC.Controllers
             livrosEstante.PaginaAtual = vm.PaginaAtual;
             livrosEstante.StatusId = vm.IdStatus;
             Avaliacao.Nota = vm.Nota;
+            Avaliacao.Comentario = vm.Comentario;
             Avaliacao.DataAvaliacao = vm.DataAvaliacao;
+
+            livrosEstante.Livro.CapaURL = vm.CapaURL;
 
             _context.SaveChanges();
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult EditarFoto(IFormFile capafile, int IdLivro)
+        {
+            int? usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+
+            if (usuarioId == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            var livro = _context.Livros.FirstOrDefault(e => e.IdLivro == IdLivro);
+
+            using (var ms = new MemoryStream())
+            {
+                capafile.CopyTo(ms);
+                livro.CapaURL = ms.ToArray();
+            }
+
+            var estante = _context.Estantes.FirstOrDefault(e => e.LivroId == IdLivro && e.UsuarioId == usuarioId);
+
+            if (estante != null)
+            {
+                return RedirectToAction("Editar", new { id = estante.IdEstante });
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

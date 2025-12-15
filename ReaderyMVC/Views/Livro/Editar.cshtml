@@ -1,0 +1,118 @@
+@model EditarEstanteViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/styles/editar.css">
+    <link rel="stylesheet" href="~/styles/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Readery - Editar</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="alinhamento-cabecalho">
+            <img src="~/assets/img/icon/icone.svg" alt="" class="logo">
+            <p class="titulo-icone">Readery</p>
+        </div>
+        <div class="alinhamento-cabecalho">
+            <button type="submit" form="edita-tudo">salvar</button>
+            <a href="" class="link-perfil">Inicio</a>
+            <a href="" class="link-perfil"><img src="~/assets/img/folha1.png" alt="" class="img-perfil"></a>
+        </div>
+    </header>
+    <main>
+        <section class="textos-topo">
+            <h1>@Model.Titulo</h1>
+            <div class="alinhar-texto-topo">
+                <p>Atualize os detalhes visuais, seu status de leitura e anotações pessoais sobre esta obra.</p>
+                <p>Ultima Edição: Há 2 horas</p>
+            </div>
+        </section>
+
+        <section class="conteudo">
+            <div class="separacao">
+                <div class="esquerda">
+                    <div class="card-livro">
+                        <form asp-action="EditarFoto" asp-controller="Livro" enctype="multipart/form-data" id="edita-foto">
+                            <input type="hidden" asp-for="IdLivro" />
+                            <label for="capafile" class="botao-foto2">
+                                <img src="~/assets/img/divinacomedia.png" alt="" class="img-card">
+                            </label>
+                            <input type="file" id="capafile" name="capafile" accept="image/jpeg, image/png, image/jpg"
+                                class="input-escondido2">
+                        </form>
+                    </div>
+                    <div class="legenda-livro">
+                        <h2>Capa do Livro</h2>
+                        <p>Formatos aceitos: JPG, JPEG, PNG.</p>
+                        <button type="submit" form="edita-foto">salvar</button>
+                    </div>
+                </div>
+                <form asp-action="Editar" asp-controller="Livro" id="edita-tudo" enctype="multipart/form-data">
+
+                    <input type="hidden" asp-for="IdEstante" />
+                    <input type="hidden" asp-for="IdAvaliacao" />
+                    <div class="direita">
+                        <div class="estado-leitura">
+                            <h1>Estado de Leitura</h1>
+                            <div class="estados">
+                                <input type="radio" asp-for="IdStatus" id="queroler" value="3">
+                                <label for="queroler" class="estado-label">Quero Ler</label>
+
+                                <input type="radio" asp-for="IdStatus" id="lendo" value="1">
+                                <label for="lendo" class="estado-label">Lendo</label>
+
+                                <input type="radio" asp-for="IdStatus" id="lido" value="2">
+                                <label for="lido" class="estado-label">Lido</label>
+                            </div>
+                        </div>
+                        <div class="avaliacao">
+                            <div class="titulo-avaliacao">
+                                <label for="">Sua Avaliação</label>
+                                <p class="nota">@Model.Nota/5</p>
+                            </div>
+                            <div class="estrelas">
+                                <input type="radio" asp-for="Nota" id="nota-1" value="1">
+                                <label for="nota-1" class="fa fa-star"></label>
+
+                                <input type="radio" asp-for="Nota" id="nota-2" value="2">
+                                <label for="nota-2" class="fa fa-star"></label>
+
+                                <input type="radio" asp-for="Nota" id="nota-3" value="3">
+                                <label for="nota-3" class="fa fa-star"></label>
+
+                                <input type="radio" asp-for="Nota" id="nota-4" value="4">
+                                <label for="nota-4" class="fa fa-star"></label>
+
+                                <input type="radio" asp-for="Nota" id="nota-5" value="5">
+                                <label for="nota-5" class="fa fa-star"></label>
+                            </div>
+                        </div>
+                        <div class="comentario">
+                            <div class="comentario-alinhamento">
+                                <div class="titulo-comentario">
+                                    <label for="">Comentários</label>
+                                </div>
+                                <div>
+                                    <textarea name="Comentario" id=""
+                                        placeholder="Escreva aqui suas anotações, citações favoritas ou pensamentos sobre o livro."
+                                    @Model.Comentario></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

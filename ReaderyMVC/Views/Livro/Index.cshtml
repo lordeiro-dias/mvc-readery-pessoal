@@ -214,6 +214,7 @@
                 var avaliacaoNota = Model.Avaliacaos.FirstOrDefault(a => a.LivroId == estantelivro.Livro.IdLivro);
                 var nota = 0;
 
+
                 if (avaliacaoNota == null)
                 {
                     nota = 0;
@@ -302,7 +303,7 @@
                             </div>
                             <div class="alinhamento-botao-modal" id="comentario-1">
                                 <div id="texto-comentario-1">
-                                    <p class="comentario-leitor"></p>
+                                    <p class="comentario-leitor">@(avaliacaoNota.Comentario == null ? "" : avaliacaoNota.Comentario)</p>
                                 </div>
                             </div>
                         </div>
@@ -315,16 +316,11 @@
 
                             <div class="estado-leitura-alinhamento">
                                 <h2 class="estado-leitura-modal">Estado de Leitura:</h2>
-                                <select id="" class="select-modal">
-                                    <option value="quero-ler">Quero Ler</option>
-                                    <option value="quero-ler">Lendo</option>
-                                    <option value="quero-ler">Lido</option>
-                                </select>
+                                <p class="select-modal">@estantelivro.Status.Estado</p>
                             </div>
                             <div class="botoes-exclui-edita-modal">
                                 <div>
-                                    <button class="editar" data-modal-id="@estantelivro.IdEstante">Editar
-                                        Livro</button>
+                                    <a href="~/Livro/Editar/@estantelivro.IdEstante" title="Editar" class="editar">Editar</a>
                                 </div>
                                 <div>
                                     <form asp-controller="Livro" asp-action="Excluir" method="post">
