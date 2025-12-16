@@ -42,9 +42,9 @@
                 <div class="esquerda">
                     <div class="card-livro">
                         <form asp-action="EditarFoto" asp-controller="Livro" enctype="multipart/form-data" id="edita-foto">
-                            <input type="hidden" asp-for="IdLivro" />
+                            <input type="hidden" name="IdLivro" value="@Model.IdLivro" />
                             <label for="capafile" class="botao-foto2">
-                                <img src="~/assets/img/divinacomedia.png" alt="" class="img-card">
+                                <img src="@(Model.CapaURL != null ? $"data:image/*;base64,{Convert.ToBase64String(Model.CapaURL)}" : "~/assets/img/divinacomedia.png")" alt="Capa do Livro" class="img-card">
                             </label>
                             <input type="file" id="capafile" name="capafile" accept="image/jpeg, image/png, image/jpg"
                                 class="input-escondido2">
@@ -102,9 +102,7 @@
                                     <label for="">Comentários</label>
                                 </div>
                                 <div>
-                                    <textarea name="Comentario" id=""
-                                        placeholder="Escreva aqui suas anotações, citações favoritas ou pensamentos sobre o livro."
-                                    @Model.Comentario></textarea>
+                                    <textarea name="Comentario" id="" ...>@Model.Comentario</textarea>
                                 </div>
                             </div>
                         </div>

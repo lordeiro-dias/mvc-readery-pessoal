@@ -832,8 +832,6 @@ C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\comp
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\dp75zvr59f-{0}-9s7pm5whtf-9s7pm5whtf.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\rvlwity6vg-{0}-lwy0z4bpha-lwy0z4bpha.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\6pto1sm3wp-{0}-kbi8a3576u-kbi8a3576u.gz
-C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\ocrdf7vvzc-{0}-r4a0fjv0et-r4a0fjv0et.gz
-C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\zzlt6j8jju-{0}-76yxwx70pk-76yxwx70pk.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\staticwebassets.development.json
@@ -850,7 +848,15 @@ C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\comp
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\c5yl0v7k19-o2udvad52j.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\9mu5m7q08t-{0}-o2udvad52j-o2udvad52j.gz
 C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\1thjau59n3-{0}-95knjs1dg4-95knjs1dg4.gz
-C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\8vr0yks04v-{0}-na05f2wfwi-na05f2wfwi.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\oq9cdho2ej-95knjs1dg4.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\0vnl447cp9-2swmh5fy7f.gz
 C:\Users\53278369831\Desktop\Readery\ReaderyMVC\obj\Debug\net9.0\compressed\purmq61t9t-xt85owaisj.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\paig1af4eb-{0}-xt85owaisj-xt85owaisj.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\8vr0yks04v-{0}-2swmh5fy7f-2swmh5fy7f.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\lhzn65mhef-{0}-80lycmkh31-80lycmkh31.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\tn44pkawu4-{0}-3hs2yxfd1n-3hs2yxfd1n.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\y979osx5rv-{0}-vcgdokx7lv-vcgdokx7lv.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\0t2pdd6uyp-{0}-8ifu0ul9o5-8ifu0ul9o5.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\df2swmc90x-{0}-byj7e0y1zc-byj7e0y1zc.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\ocrdf7vvzc-{0}-glsviz6wrp-glsviz6wrp.gz
+C:\Users\duds\Desktop\Senai\mvc-readery-pessoal\ReaderyMVC\obj\Debug\net9.0\compressed\zzlt6j8jju-{0}-tnax0krpjf-tnax0krpjf.gz

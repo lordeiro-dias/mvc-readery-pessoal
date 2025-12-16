@@ -1,8 +1,77 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+@{
+    Layout = null;
+} 
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readery - HomePage</title>
+    <link rel="stylesheet" href="~/styles/homepage.css">
+    <link rel="stylesheet" href="~/styles/global.css">
+    <script src="~/js/script.js" defer></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <img src="assets/Logo.png" alt="logo-topo" class="logo-topo">
+
+        <nav class="navbar">
+            <a href="~/Login/Index" class="login">Login</a>
+        </nav>
+    </header>
+
+    <section class="corpo">
+        <div class="titulo">
+            <h1>Readery</h1>
+        </div>
+
+        <div class="subtitulo">
+            <p>Seu diário de leitura e atualizações semanais.</p>
+        </div>
+
+        <div class="contexto">
+            <p>Acompanhe os livros que transformaram <br> o seu passado, gerencie sua leitura do <br> presente e trace o
+                caminho para os <br> títulos que vão moldar o seu futuro.</p>
+        </div>
+    </section>
+
+    <section class="destaques">
+        <h2>Destaques da <br> semana</h2>
+        <img src="assets/Card1.png" alt="card1">
+        <img src="assets/Card2.png" alt="card2" class="card2">
+        <img src="assets/Card3.png" alt="card3">
+        <img src="assets/Card4.png" alt="card4">
+    </section>
+
+    <div class="frase">
+        <img src="assets/Frase.png" alt="frase">
+    </div>
+
+    <section class="pre-footer">
+        <h2 class="autores-titulo">Autores em destaque</h2>
+
+        <div class="autores">
+            <img class="autor1" src="assets/Autor1.png" alt="autor 1">
+            <img class="autor2" src="assets/Autor2.png" alt="autor 2">
+            <img class="autor3" src="assets/Autor3.png" alt="autor 3">
+            <img class="autor4" src="assets/Autor4.png" alt="autor 4">
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo-fim">
+            <img src="assets/Logo.png" alt="logo-fim">
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 Readery | Todos os direitos reservados </p>
+        </div>
+    </footer>
+</body>
+
+</html>

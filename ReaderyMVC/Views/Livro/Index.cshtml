@@ -13,24 +13,72 @@
     <link rel="stylesheet" href="~/styles/livro.css">
     <link rel="stylesheet" href="~/styles/stylepesquisa.css">
     <link rel="stylesheet" href="~/styles/styleadicao.css">
+    <link rel="stylesheet" href="~/styles/modal-perfil.css">
     <script defer src="~/scripts/script.js"></script>
     <script defer src="~/scripts/scriptpesquisa.js"></script>
     <script defer src="~/scripts/textoTempoReal.js"></script>
     <script defer src="~/scripts/scriptadicao.js"></script>
+    <script defer src="~/scripts/modal-perfil.js"></script>
     <title>Readery - Lista de Livros</title>
 </head>
 
 <body>
+
+    <!-------------------------------- Overlay -------------------------------->
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <!-------------------------------- FIM -------------------------------->
     <header class="cabecalho">
         <div class="alinhamento-cabecalho">
-            <img src="~/assets/img/icone.svg" alt="" class="logo">
+            <img src="assets/img/icone.svg" alt="" class="logo">
             <p class="titulo-icone">Readery</p>
         </div>
-        <div class="alinhamento-cabecalho">
-            <a href="" class="link-perfil">Perfil</a>
-            <a href="" class="link-perfil"><img src="~/assets/img/folha1.png" alt="" class="img-perfil"></a>
-        </div>
+        <button id="abrir-modal">Perfil</button>
     </header>
+    <!-------------------------------- MODAL PERFIL -------------------------------->
+    <dialog id="modal-perfil" class="modal-perfil">
+
+        <div class="titulo-perfil">
+            <H1 id="titulo-perfil">Perfil</H1>
+        </div>
+
+        <button id="fechar-modal">X</button>
+
+        <div class="laterais-perfil">
+            <div class="esquerda-perfil">
+                <div class="container-foto">
+                    <img id="foto-usuario" src="assets/icons/inserir-foto.svg" alt="">
+                    <input type="file" id="input-foto" name="Foto" accept="image/*" style="display: none;">
+                </div>
+                <button id="enviar-foto-usuario" type="button">Fazer upload</button>
+            </div>
+
+            <div class="direita-perfil">
+                <form class="form-edicao-perfil">
+                    <div class="formulario">
+                        <label for="name" class="titulo-input" name="AlterarNomeUser">Nome</label>
+                        <input type="text" id="nome-usuario" name="Nome" class="campo-input"
+                            placeholder="Seu nome de usuário">
+
+                        <label class="titulo-input">Gênero</label>
+                        <select id="genero-usuario" name="GeneroUsuario" class="campo-input">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+
+                        <label class="titulo-input">Descrição</label>
+                        <textarea id="campo-descricao" name="DescricaoUsuario"
+                            placeholder="Uma breve descrição sobre você"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="rodape-perfil">
+            <button type="button" id="salvar-mudancas">Salvar mudanças</button>
+            <button id="fechar-modal2">Cancelar</button>
+        </div>
+    </dialog>
+    <!-------------------------------- FIM MODAL PERFIL -------------------------------->
 
     <main>
         @* <dialog class="teste-modal" id="teste-modal">
@@ -77,11 +125,11 @@
             <section class="livros" id="lista-livros-modal">
                 @foreach (var livro in Model.Livros)
                 {
-                    <form asp-action="CriarCard" asp-controller="Livro" method="post">
-                        <li class="livrinho-modal">
-                            <button type="submit" name="livroid" value="@livro.IdLivro">@livro.Titulo</button>
-                        </li>
-                    </form>
+                    <form asp-action="CriarCard" asp-controller="Livro" method="post" class="form-livro">
+                    <button type="submit" name="livroid" value="@livro.IdLivro" class="livrinho-modal">
+                        @livro.Titulo
+                    </button>
+                </form>
                 }
             </section>
             <button onclick="closeModal()" class="botao-fechar">X</button>
@@ -210,8 +258,11 @@
         <section class="secao-modal-cards">
             @foreach (var estantelivro in Model.Estantes)
             {
-                var fotob64 = Convert.ToBase64String(estantelivro.Livro.CapaURL);
-                var avaliacaoNota = Model.Avaliacaos.FirstOrDefault(a => a.LivroId == estantelivro.Livro.IdLivro);
+                var capaSrc = (estantelivro.Livro.CapaURL != null) 
+                  ? $"data:image/*;base64,{Convert.ToBase64String(estantelivro.Livro.CapaURL)}"
+                  : "~/assets/img/sem-foto.png";
+                  
+                var avaliacaoNota = Model.Avaliacaos.FirstOrDefault(a => a.LivroId == estantelivro.Livro.IdLivro && a.UsuarioId == estantelivro.UsuarioId);
                 var nota = 0;
 
 
@@ -283,8 +334,7 @@
                     <h1 class="titulo-livro-modal">@estantelivro.Livro.Titulo</h1>
 
                     <div class="modal-card-parte1">
-                        <img src="@(fotob64 != null ? $"data:image/*;base64,{fotob64}" :   
-                            "~/assets/img/divinacomedia.png")" alt="" class="img-modal-card">
+                        <img src="@capaSrc" class="img-modal-card">
                         <div class="separacao-textos-modal">
                             <div>
                                 <p class="texto-modal">@estantelivro.Livro.Sinopse</p>
@@ -303,7 +353,7 @@
                             </div>
                             <div class="alinhamento-botao-modal" id="comentario-1">
                                 <div id="texto-comentario-1">
-                                    <p class="comentario-leitor">@(avaliacaoNota.Comentario == null ? "" : avaliacaoNota.Comentario)</p>
+                                    <p class="comentario-leitor">@(avaliacaoNota?.Comentario ?? "")</p>
                                 </div>
                             </div>
                         </div>
@@ -340,14 +390,15 @@
         <section class="secao-livros">
             @foreach (var estantelivro in Model.Estantes)
             {
-                var fotob64 = Convert.ToBase64String(estantelivro.Livro.CapaURL);
+                var capaSrc = (estantelivro.Livro.CapaURL != null) 
+                  ? $"data:image/*;base64,{Convert.ToBase64String(estantelivro.Livro.CapaURL)}"
+                  : "~/assets/img/sem-foto.png";
 
                 <div class="espaco-card">
 
                     <div class="card-dentro">
                         <button class="abrir-modal-detalhe" data-modal-id="@estantelivro.IdEstante">
-                            <img src="@(fotob64 != null ? $"data:image/*;base64,{fotob64}" :   
-                            "~/assets/img/divinacomedia.png")" alt="" class="img-card"></button>
+                            <img src="@capaSrc" class="img-card"></button>
                         <div class="textos">
                             <p>@estantelivro.Livro.Titulo</p>
                         </div>

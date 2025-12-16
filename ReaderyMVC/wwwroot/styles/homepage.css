@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --bege: #FAF0E5;
+    --marrom-claro: #E3D6C8;
+    --marrom: #B8A28B;
+    --marrom-escuro: #8E7253;
+    --branco: #FFFFFF;
+    --preto: #000000;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+    color: var(--preto);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url(../assets/BackgroundHome.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: scroll;
+    overflow-x: hidden;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    padding: 1% 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0px 0px 50px 50px;
+    z-index: 100;
+    background-color: var(--marrom-escuro);
+}
+
+.logo-topo {
+    width: 20%;
+    margin-bottom: 25px;
+}
+
+.navbar a {
+    font-size: 2rem;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    color: var(--branco);
+    font-weight: 300;
+    margin-left: 35px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.corpo {
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.titulo h1 {
+    margin-top: 10%;
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.subtitulo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.contexto {
+    margin-top: 5%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: start;
+}
+
+.destaques {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50vh;
+    width: 100vw;
+    border-radius: 50px;
+    background-color: var(--marrom-claro);
+}
+
+.destaques img {
+    border: 8px solid var(--marrom);
+    border-radius: 15px;
+}
+
+.card2 {
+    width: 214.39px;
+    height: 314.39px;
+}
+
+.destaques img:hover {
+    transform: scale(1.1);
+}
+
+.destaques h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.pre-footer {
+    height: 60vh;
+    width: 100%;
+}
+
+.frase {
+    margin-top: 15%;
+    margin-bottom: 15%;
+    justify-content: right;
+}
+
+.autores {
+    justify-content: space-around;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 8%;
+}
+
+.autor1, .autor2, .autor3, .autor4 {
+    height: 40vh;
+    padding: 5vh;
+}
+
+.autores-titulo {
+    margin-top: 10%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    white-space: nowrap;
+    justify-self: end;
+    margin-right: 12%;
+}
+
+footer {
+    padding: 1% 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px 50px 0px 0px;
+    background-color: var(--marrom-escuro);
+}
+
+.copyright {
+    margin-top: 20px;
+}
+
+.copyright p {
+    color: var(--branco);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 500px) {
+
+    body {
+        background-image: none;
+        background-color: #FAF0E5;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .header {
+        position: relative;
+        width: 100%;
+        padding: 1% 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 0px 0px 25px 25px;
+        z-index: 100;
+        background-color: var(--marrom-escuro);
+    }
+    
+    .logo-topo {
+        width: 40%;
+        margin-top: 15px;
+    }
+
+    .navbar a {
+        font-size: 1rem;
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+        color: var(--branco);
+        font-weight: 300;
+        margin-right: 20px;
+    }
+
+    .corpo {
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .titulo h1 {
+        margin: 0px;
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+
+    .subtitulo {
+        margin: 0px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+    }
+
+    .contexto {
+        margin: 0px;
+        margin-top: 2%;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .destaques {
+        flex-direction: row;
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+        width: 100%;
+        border-radius: 50px;
+        background-color: var(--marrom-claro);
+        padding: 5%;
+    }
+
+    .destaques img {
+        width: 35%;
+        border: 8px solid var(--marrom);
+        border-radius: 15px;
+        margin: 3%;
+    }
+
+    .destaques img:hover {
+        transform: scale(1.1);
+    }
+
+    .card2 {
+        width: 135.44px;
+        height: 195.16px;
+    }
+
+    .destaques h2 {
+        width: 100%;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    .frase {
+        padding-bottom: 13%;
+    }
+
+    .frase img {
+        width: 70%;
+    }
+
+    .pre-footer {
+        height: auto;
+        background-color: var(--marrom-claro);
+        padding: 5%;
+        border-radius: 50px 50px 0px 0px;
+    }
+
+    .autores {
+        margin: 0px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .autores img {
+        width: 30%;
+    }
+
+    .autores-titulo {
+        margin: 0px;
+        margin-top: 10%;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        white-space: nowrap;
+        justify-self: center;
+    }
+
+    footer {
+        padding: 4% 8%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 0px;
+        background-color: var(--marrom-escuro);
+    }
+
+    .logo-fim img {
+        width: 80%;
+    }
+
+    .copyright {
+        margin-top: 3px;
+    }
+
+    .copyright p {
+        color: var(--branco);
+        font-family: "Roboto", sans-serif;
+        font-size: 0.6rem;
+        white-space: nowrap;
+    }
+
+}

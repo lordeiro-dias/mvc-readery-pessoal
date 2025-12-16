@@ -1,0 +1,46 @@
+@{
+Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readery - Redefinição de senha</title>
+    <link rel="stylesheet" href="~/styles/redefinicao.css">
+    <link rel="stylesheet" href="~/styles/global.css">
+    <script defer src="~/js/script.js"></script>
+</head>
+
+<body>
+    <main class="container-redefinicao">
+        <div class="borda">
+            <form id="resetForm" method="post" asp-action="Redefinir">
+                <section class="form">
+                    <div class="email-input">
+                        <label for="email">Para redefinir sua senha, insira seu email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </section>
+
+                <p class="erro-redefinicao @(ViewBag.Erro != null ? "mostrar" : "")">
+                    @ViewBag.Erro
+                </p>
+
+                <p class="sucesso-redefinicao @(ViewBag.Sucesso != null ? "mostrar" : "")">
+                    @ViewBag.Sucesso
+                </p>
+
+                <section class="botoes">
+                    <button type="submit" id="botaoEnviar" class="botao-enviar">Enviar</button>
+                    <a href="~/Login/Index" class="botao-login">Voltar para o login</a>
+                </section>
+            </form>
+
+        </div>
+    </main>
+</body>
+
+</html>
